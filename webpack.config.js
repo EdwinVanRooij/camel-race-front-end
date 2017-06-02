@@ -1,5 +1,21 @@
+var webpack = require('webpack');
+
 module.exports = {
-    entry: './app/app.jsx',
+    entry: [
+        'script!jquery/dist/jquery.min.js',
+        'script!foundation-sites/dist/foundation.min.js',
+        './app/app.jsx',
+    ],
+    externals: {
+        jquery: 'jQuery'
+    },
+    plugins: [
+        new webpack.ProvidePlugin({
+            '$': 'jquery',
+            'jQuery': 'jquery',
+        })
+    ],
+
     output: {
         path: __dirname,
         filename: './public/bundle.js',
@@ -9,9 +25,12 @@ module.exports = {
         alias: {
             Container: 'app/components/Container.jsx',
             Nav: 'app/components/Nav.jsx',
-            Lobby: 'app/components/Lobby.jsx',
             Rules: 'app/components/Rules.jsx',
             Author: 'app/components/Author.jsx',
+
+            Lobby: 'app/components/Lobby.jsx',
+            LobbyConnectedBox: 'app/components/LobbyConnectedBox.jsx',
+            LobbyStartBox: 'app/components/LobbyStartBox.jsx',
         },
         extensions: ['', '.js', '.jsx']
     },
@@ -24,7 +43,8 @@ module.exports = {
                 },
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/
-            }
+            },
         ]
-    }
+    },
+    devtool: 'cheap-module-eval-source-map'
 };

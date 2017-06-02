@@ -3,9 +3,7 @@ var React = require('react');
 var Rules = React.createClass({
     render: function () {
         return (
-            <div>
-                <h2>Author</h2>
-            </div>
+            <h2>Author</h2>
         );
     }
 });

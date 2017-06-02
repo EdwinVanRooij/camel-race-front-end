@@ -6,6 +6,10 @@ var Lobby = require('Lobby');
 var Rules = require('Rules');
 var Author = require('Author');
 
+// Load css
+require('style!css!foundation-sites/dist/foundation.min.css');
+$(document).foundation;
+
 ReactDOM.render(
     <Router history={hashHistory}>
         <Route path="/" component={Container}>

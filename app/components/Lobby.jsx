@@ -1,10 +1,15 @@
 var React = require('react');
+var LobbyConnectedBox = require('LobbyConnectedBox');
+var LobbyStartBox = require('LobbyStartBox');
 
 var Lobby = React.createClass({
     render: function () {
+
         return (
             <div>
-                <h2>Lobby</h2>
+                <h1>Lobby!</h1>
+                <LobbyConnectedBox/>
+                <LobbyStartBox/>
             </div>
         );
     }
