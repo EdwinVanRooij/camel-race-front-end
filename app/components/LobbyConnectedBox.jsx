@@ -3,8 +3,8 @@ var React = require('react');
 var ConnectedBoxMessage = React.createClass({
     render: function () {
         return (
-            <div>
-                <h1>Connected</h1>
+            <div className="card-divider" >
+                <h3>Connected</h3>
             </div>
         );
     }
@@ -13,10 +13,22 @@ var ConnectedBoxMessage = React.createClass({
 var ConnectedBoxPlayers = React.createClass({
     render: function () {
         return (
-            <div>
-                <p>Rik</p>
-                <p>Bob</p>
-                <p>Tom</p>
+            <div className="card-section" >
+                <ul>
+                    <li>
+                        Rik
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        Bob
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        Tom
+                    </li>
+                </ul>
             </div>
         );
     }
@@ -25,7 +37,7 @@ var ConnectedBoxPlayers = React.createClass({
 var LobbyConnectedBox = React.createClass({
     render: function () {
         return (
-            <div>
+            <div className="card">
                 <ConnectedBoxMessage/>
                 <ConnectedBoxPlayers/>
             </div>

@@ -28,6 +28,8 @@ module.exports = {
             Rules: 'app/components/Rules.jsx',
             Author: 'app/components/Author.jsx',
 
+            PageHeader: 'app/components/PageHeader.jsx',
+
             Lobby: 'app/components/Lobby.jsx',
             LobbyConnectedBox: 'app/components/LobbyConnectedBox.jsx',
             LobbyStartBox: 'app/components/LobbyStartBox.jsx',

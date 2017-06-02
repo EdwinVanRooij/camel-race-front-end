@@ -4,8 +4,8 @@ var LobbyStartBox = React.createClass({
     render: function () {
         return (
             <div>
-                <h2>#3432</h2>
-                <button>Start</button>
+                <h3 className="text-center">#3432</h3>
+                <button className="large primary expanded button">Start</button>
             </div>
         );
     }
