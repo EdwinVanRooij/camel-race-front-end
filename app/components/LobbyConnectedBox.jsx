@@ -3,7 +3,7 @@ var React = require('react');
 var ConnectedBoxMessage = React.createClass({
     render: function () {
         return (
-            <div className="box-header" style={{paddingBottom: '2.5rem', paddingTop: '0.5rem'}} >
+            <div className="box-header lobby-box-header text-center">
                 <h3>Connected</h3>
             </div>
         );
