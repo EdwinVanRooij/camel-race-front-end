@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Rules extends React.Component{
+class PageHeader extends React.Component{
 
     render (){
 
@@ -14,4 +14,4 @@ class Rules extends React.Component{
     }
 }
 
-module.exports = Rules;
+module.exports = PageHeader;

@@ -5,6 +5,7 @@ import Container from 'Container';
 import Lobby from 'Lobby';
 import Rules from 'Rules';
 import Author from 'Author';
+import Game from 'Game';
 
 // Load css
 require('style!css!foundation-sites/dist/foundation.min.css');

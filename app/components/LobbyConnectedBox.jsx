@@ -9,7 +9,7 @@ function ConnectedBoxMessage(props) {
     )
 }
 
-function  ConnectedBoxPlayers(props) {
+function ConnectedBoxPlayers(props) {
     return (
         <div>
             <ul>

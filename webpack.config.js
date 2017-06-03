@@ -36,6 +36,8 @@ module.exports = {
             Lobby: 'app/components/Lobby.jsx',
             LobbyConnectedBox: 'app/components/LobbyConnectedBox.jsx',
             LobbyStartBox: 'app/components/LobbyStartBox.jsx',
+
+            Game: 'app/components/Game.jsx',
         },
         extensions: ['', '.js', '.jsx']
     },
