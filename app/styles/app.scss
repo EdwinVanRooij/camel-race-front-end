@@ -2,16 +2,9 @@
 
 // Components
 @import "components/navigation";
+@import "components/lobby";
 
 .page-header {
   margin-top: $space-large;
   margin-bottom: $space-large;
-}
-
-.lobby-box-header {
-  margin: $space-medium;
-}
-
-.active {
-  font-weight: bold;
 }

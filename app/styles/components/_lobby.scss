@@ -1,0 +1,46 @@
+// Generic
+
+.container {
+  border: 1px solid $container-border-color;
+  border-radius: 3px;
+  padding: 0;
+}
+
+// Connected box
+
+.connected-box {
+  border-radius: 3px;
+  background-color: $connected-box-background-color;
+
+  ul {
+    color: $player-names-color;
+  }
+}
+
+// Start box
+
+//@keyframes game-id-keyframes {
+//  0% {
+//    color: red;
+//  }
+//  50% {
+//    color: blue;
+//  }
+//  100% {
+//    color: red;
+//  }
+//}
+
+.start-box {
+  background-color: $start-box-background-color;
+
+  .game-id {
+    //animation: game-id-keyframes;
+    //animation-duration: 0.2s;
+    //animation-iteration-count: infinite;
+  }
+}
+
+.lobby-box-header {
+  margin: $space-medium;
+}
