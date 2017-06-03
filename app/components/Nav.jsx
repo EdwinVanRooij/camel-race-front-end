@@ -11,17 +11,17 @@ var Nav = React.createClass({
                         <li className="menu-text">CamelRace</li>
                         <li>
                             <IndexLink to="/" activeClassName="active"
-                                       activeStyle={{fontWeight: 'bold'}}>Lobby</IndexLink>
+                                       >Lobby</IndexLink>
                         </li>
                         <li>
-                            <Link to="rules" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Rules</Link>
+                            <Link to="rules" activeClassName="active" >Rules</Link>
                         </li>
                     </ul>
                 </div>
                 <div className="top-bar-right">
                     <ul className="menu">
                         <li>
-                            <Link to="author" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Author</Link>
+                            <Link to="author" activeClassName="active">Author</Link>
                         </li>
                     </ul>
                 </div>

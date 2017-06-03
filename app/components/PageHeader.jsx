@@ -12,7 +12,7 @@ var Rules = React.createClass({
 
         return (
             <div>
-                <h1 className="text-center">{title}</h1>
+                <h1 className="text-center page-header">{title}</h1>
             </div>
         );
     }

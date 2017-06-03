@@ -3,7 +3,7 @@ var React = require('react');
 var ConnectedBoxMessage = React.createClass({
     render: function () {
         return (
-            <div className="card-divider" >
+            <div className="box-header" style={{paddingBottom: '2.5rem', paddingTop: '0.5rem'}} >
                 <h3>Connected</h3>
             </div>
         );
@@ -13,7 +13,7 @@ var ConnectedBoxMessage = React.createClass({
 var ConnectedBoxPlayers = React.createClass({
     render: function () {
         return (
-            <div className="card-section" >
+            <div>
                 <ul>
                     <li>
                         Rik
@@ -37,7 +37,7 @@ var ConnectedBoxPlayers = React.createClass({
 var LobbyConnectedBox = React.createClass({
     render: function () {
         return (
-            <div className="card">
+            <div>
                 <ConnectedBoxMessage/>
                 <ConnectedBoxPlayers/>
             </div>
