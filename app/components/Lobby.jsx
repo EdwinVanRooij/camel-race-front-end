@@ -1,13 +1,9 @@
-var React = require('react');
-var LobbyConnectedBox = require('LobbyConnectedBox');
-var LobbyStartBox = require('LobbyStartBox');
-var PageHeader = require('PageHeader');
+import React from 'react';
+import LobbyConnectedBox from 'LobbyConnectedBox';
+import LobbyStartBox from 'LobbyStartBox';
+import PageHeader from 'PageHeader';
 
 class Lobby extends React.Component {
-
-    handleStartClick(i) {
-        console.log('Message from ' + i)
-    }
 
     render () {
         return (
@@ -20,7 +16,7 @@ class Lobby extends React.Component {
                         <LobbyConnectedBox/>
                     </div>
                     <div className="columns small-8 medium-8 large-8 start-box">
-                        <LobbyStartBox onStartClick={() => this.handleStartClick(i)}/>
+                        <LobbyStartBox />
                     </div>
                 </div>
             </div>

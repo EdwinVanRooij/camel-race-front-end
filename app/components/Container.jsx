@@ -1,5 +1,5 @@
-var React = require('react');
-var Nav = require('Nav');
+import React from 'react';
+import Nav from 'Nav';
 
 function Container(props) {
     return (
