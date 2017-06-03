@@ -1,0 +1,20 @@
+// Partial scss file
+.top-bar, .top-bar ul {
+  background-color: $nav-background;
+}
+
+.top-bar {
+  .menu-text {
+    color: $nav-text-color
+  }
+
+  .top-bar-right {
+    span {
+      color: $nav-text-color
+    }
+    a {
+      display: inline;
+      padding: 0;
+    }
+  }
+}

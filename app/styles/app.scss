@@ -1,5 +1,7 @@
-$space-large: 5rem;
-$space-medium: 3rem;
+@import "base/variables";
+
+// Components
+@import "components/navigation";
 
 .page-header {
   margin-top: $space-large;
