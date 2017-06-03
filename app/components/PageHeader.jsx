@@ -1,12 +1,8 @@
 var React = require('react');
 
-var Rules = React.createClass({
-    getDefaultProps: function () {
-        return {
-            title: 'Title not filled in',
-        };
-    },
-    render: function () {
+class Rules extends React.Component{
+
+    render (){
 
         var title = this.props.title;
 
@@ -16,6 +12,6 @@ var Rules = React.createClass({
             </div>
         );
     }
-});
+}
 
 module.exports = Rules;

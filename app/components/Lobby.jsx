@@ -3,9 +3,13 @@ var LobbyConnectedBox = require('LobbyConnectedBox');
 var LobbyStartBox = require('LobbyStartBox');
 var PageHeader = require('PageHeader');
 
-var Lobby = React.createClass({
-    render: function () {
+class Lobby extends React.Component {
 
+    handleStartClick(i) {
+        console.log('Message from ' + i)
+    }
+
+    render () {
         return (
             <div>
                 <div>
@@ -16,12 +20,12 @@ var Lobby = React.createClass({
                         <LobbyConnectedBox/>
                     </div>
                     <div className="columns small-8 medium-8 large-8 start-box">
-                        <LobbyStartBox/>
+                        <LobbyStartBox onStartClick={() => this.handleStartClick(i)}/>
                     </div>
                 </div>
             </div>
         );
     }
-});
+}
 
 module.exports = Lobby;
