@@ -1,13 +1,12 @@
-var React = require('react');
+import React from 'react';
 
-var Rules = React.createClass({
-    render: function () {
-        return (
-            <div>
-                <h2>Rules</h2>
-            </div>
-        );
-    }
-});
+function Rules(props) {
+    return (
+        <div>
+            <h2>Rules</h2>
+        </div>
+    )
+}
 
 module.exports = Rules;
+

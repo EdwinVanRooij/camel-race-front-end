@@ -1,12 +1,8 @@
-var React = require('react');
+import React from 'react';
 
-var Rules = React.createClass({
-    getDefaultProps: function () {
-        return {
-            title: 'Title not filled in',
-        };
-    },
-    render: function () {
+class PageHeader extends React.Component{
+
+    render (){
 
         var title = this.props.title;
 
@@ -16,6 +12,7 @@ var Rules = React.createClass({
             </div>
         );
     }
-});
+}
 
-module.exports = Rules;
+module.exports = PageHeader;
+

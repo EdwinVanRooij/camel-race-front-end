@@ -1,48 +1,44 @@
-var React = require('react');
+import React from 'react';
 
-var ConnectedBoxMessage = React.createClass({
-    render: function () {
-        return (
-            <div className="box-header lobby-box-header text-center">
-                <h3>Connected</h3>
-            </div>
-        );
-    }
-});
+function ConnectedBoxMessage(props) {
+    return (
 
-var ConnectedBoxPlayers = React.createClass({
-    render: function () {
-        return (
-            <div>
-                <ul>
-                    <li>
-                        Rik
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        Bob
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        Tom
-                    </li>
-                </ul>
-            </div>
-        );
-    }
-});
+        <div className="box-header lobby-box-header text-center">
+            <h3>Connected</h3>
+        </div>
+    )
+}
 
-var LobbyConnectedBox = React.createClass({
-    render: function () {
-        return (
-            <div>
-                <ConnectedBoxMessage/>
-                <ConnectedBoxPlayers/>
-            </div>
-        );
-    }
-});
+function ConnectedBoxPlayers(props) {
+    return (
+        <div>
+            <ul>
+                <li>
+                    Rik
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    Bob
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    Tom
+                </li>
+            </ul>
+        </div>
+    )
+}
+
+function LobbyConnectedBox(props) {
+    return (
+        <div>
+            <ConnectedBoxMessage/>
+            <ConnectedBoxPlayers/>
+        </div>
+    )
+}
 
 module.exports = LobbyConnectedBox;
+

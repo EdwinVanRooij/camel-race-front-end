@@ -1,11 +1,11 @@
-var React = require('react');
-var LobbyConnectedBox = require('LobbyConnectedBox');
-var LobbyStartBox = require('LobbyStartBox');
-var PageHeader = require('PageHeader');
+import React from 'react';
+import LobbyConnectedBox from 'LobbyConnectedBox';
+import LobbyStartBox from 'LobbyStartBox';
+import PageHeader from 'PageHeader';
 
-var Lobby = React.createClass({
-    render: function () {
+class Lobby extends React.Component {
 
+    render () {
         return (
             <div>
                 <div>
@@ -16,12 +16,13 @@ var Lobby = React.createClass({
                         <LobbyConnectedBox/>
                     </div>
                     <div className="columns small-8 medium-8 large-8 start-box">
-                        <LobbyStartBox/>
+                        <LobbyStartBox />
                     </div>
                 </div>
             </div>
         );
     }
-});
+}
 
 module.exports = Lobby;
+
