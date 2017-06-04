@@ -1,15 +1,7 @@
-// Generic
-
-.container {
-  border: 1px solid $container-border-color;
-  border-radius: 3px;
-  padding: 0;
-}
-
 // Connected box
 
 .connected-box {
-  border-radius: 3px;
+  padding: $space-large;
   background-color: $connected-box-background-color;
 
   ul {
@@ -32,7 +24,7 @@
 //}
 
 .start-box {
-  background-color: $start-box-background-color;
+  padding: $space-large;
 
   .game-id {
     //animation: game-id-keyframes;

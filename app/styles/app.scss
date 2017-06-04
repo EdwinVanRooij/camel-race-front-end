@@ -3,8 +3,15 @@
 // Components
 @import "components/navigation";
 @import "components/lobby";
+@import "components/game";
 
 .page-header {
   margin-top: $space-large;
   margin-bottom: $space-large;
+}
+
+.container {
+  background-color: $container-background-color;
+  border: 1px solid $container-border-color;
+  border-radius: 3px;
 }

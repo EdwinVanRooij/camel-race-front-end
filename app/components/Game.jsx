@@ -3,26 +3,40 @@ import AceOfClubs from "AceOfClubs";
 import AceOfSpades from "AceOfSpades";
 import AceOfHearts from "AceOfHearts";
 import AceOfDiamonds from "AceOfDiamonds";
+import CardUnknown from "CardUnknown";
+import PageHeader from 'PageHeader';
 
 function SideCard(props) {
-
+    return (
+        <div className="side-card">
+            <img src={CardUnknown}/>
+        </div>
+    )
 }
 
 function Camel(props) {
     return (
-        <div>
-            <img style={{width: '200px'}} src={props.imageUrl}/>
+        <div className="camel">
+            <img style={{width: '800px'}} src={props.imageUrl}/>
         </div>
     )
 }
 
 function CamelsBox(props) {
     return (
-        <div>
-            <Camel imageUrl={AceOfClubs}/>
-            <Camel imageUrl={AceOfSpades}/>
-            <Camel imageUrl={AceOfHearts}/>
-            <Camel imageUrl={AceOfDiamonds}/>
+        <div className="row">
+            <div className="columns small-3 medium-3 large-3">
+                <Camel imageUrl={AceOfClubs}/>
+            </div>
+            <div className="columns small-3 medium-3 large-3">
+                <Camel imageUrl={AceOfSpades}/>
+            </div>
+            <div className="columns small-3 medium-3 large-3">
+                <Camel imageUrl={AceOfDiamonds}/>
+            </div>
+            <div className="columns small-3 medium-3 large-3">
+                <Camel imageUrl={AceOfHearts}/>
+            </div>
         </div>
     )
 }
@@ -31,11 +45,27 @@ function SideCardsBox(props) {
     return (
         <div>
             <ul>
-                <li>Card 1</li>
-                <li>Card 2</li>
-                <li>Card 3</li>
-                <li>Card 4</li>
+                <SideCard/>
+                <SideCard/>
+                <SideCard/>
+                <SideCard/>
             </ul>
+        </div>
+    )
+}
+
+function Deck(props) {
+    return (
+        <div className="deck">
+            <h2>Card!</h2>
+        </div>
+    )
+}
+
+function LatestCard(props) {
+    return (
+        <div className="latest-card">
+            <h2>Card!</h2>
         </div>
     )
 }
@@ -43,8 +73,8 @@ function SideCardsBox(props) {
 function DeckBox(props) {
     return (
         <div>
-            <h2>Card!</h2>
-            <h1>?</h1>
+            <LatestCard/>
+            <Deck/>
         </div>
     )
 }
@@ -53,17 +83,22 @@ class Game extends React.Component {
 
     render() {
         return (
-            <div className="row container">
-                <div className="columns small-3 medium-3 large-3">
-                    <SideCardsBox/>
+            <div>
+                <div>
+                    <PageHeader title={'Race!'}/>
                 </div>
+                <div className="row container">
+                    <div className="columns small-2 medium-2 large-2">
+                        <SideCardsBox />
+                    </div>
 
-                <div className="columns small-5 medium-5 large-5">
-                    <CamelsBox/>
-                </div>
+                    <div className="columns small-8 medium-8 large-8">
+                        <CamelsBox/>
+                    </div>
 
-                <div className="columns small-4 medium-4 large-4">
-                    <DeckBox/>
+                    <div className="columns small-2 medium-2 large-2">
+                        <DeckBox/>
+                    </div>
                 </div>
             </div>
         );
