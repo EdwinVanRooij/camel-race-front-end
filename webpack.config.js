@@ -18,7 +18,7 @@ module.exports = {
     ],
 
     output: {
-        path: __dirname + '/public/',
+        path: __dirname ,
         filename: './bundle.js',
     },
     resolve: {
@@ -56,13 +56,6 @@ module.exports = {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/
             },
-            {
-                test: /\.(jpg|png|svg)$/,
-                loader: 'file-loader',
-                options: {
-                    name: '[path][name].[hash].[ext]',
-                }
-            }
         ]
     },
     devtool: 'cheap-module-eval-source-map'
