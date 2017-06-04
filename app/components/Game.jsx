@@ -4,6 +4,7 @@ import AceOfSpades from "AceOfSpades";
 import AceOfHearts from "AceOfHearts";
 import AceOfDiamonds from "AceOfDiamonds";
 import CardUnknown from "CardUnknown";
+import CardEmpty from "CardEmpty";
 import PageHeader from 'PageHeader';
 
 function SideCard(props) {
@@ -15,27 +16,60 @@ function SideCard(props) {
 }
 
 function Camel(props) {
-    return (
-        <div className="camel">
-            <img style={{width: '800px'}} src={props.imageUrl}/>
-        </div>
-    )
+    if (props.imageUrl) {
+        return (
+            <div className="camel">
+                <img src={props.imageUrl}/>
+            </div>
+        )
+    }
+    else {
+        return (
+            <div className="camel">
+                <img src={CardEmpty}/>
+            </div>
+        )
+    }
 }
 
 function CamelsBox(props) {
     return (
         <div className="row">
-            <div className="columns small-3 medium-3 large-3">
-                <Camel imageUrl={AceOfClubs}/>
+            <div className="columns vertical small-3 medium-3 large-3">
+                <div className="row">
+                    <Camel/>
+                    <Camel/>
+                    <Camel/>
+                    <Camel/>
+                    <Camel imageUrl={AceOfClubs}/>
+                </div>
+            </div>
+            <div className="columns vertical small-3 medium-3 large-3">
+                <div className="row">
+                    <Camel/>
+                    <Camel/>
+                    <Camel/>
+                    <Camel/>
+                    <Camel imageUrl={AceOfSpades}/>
+                </div>
             </div>
             <div className="columns small-3 medium-3 large-3">
-                <Camel imageUrl={AceOfSpades}/>
+                <div className="row">
+                    <Camel/>
+                    <Camel/>
+                    <Camel/>
+                    <Camel/>
+                    <Camel imageUrl={AceOfDiamonds}/>
+                </div>
             </div>
             <div className="columns small-3 medium-3 large-3">
-                <Camel imageUrl={AceOfDiamonds}/>
-            </div>
-            <div className="columns small-3 medium-3 large-3">
-                <Camel imageUrl={AceOfHearts}/>
+                <div className="row">
+                    <Camel/>
+                    <Camel/>
+                    <Camel/>
+                    <Camel/>
+                    <Camel imageUrl={AceOfHearts}/>
+                </div>
             </div>
         </div>
     )
@@ -43,13 +77,11 @@ function CamelsBox(props) {
 
 function SideCardsBox(props) {
     return (
-        <div>
-            <ul>
-                <SideCard/>
-                <SideCard/>
-                <SideCard/>
-                <SideCard/>
-            </ul>
+        <div className="row">
+            <SideCard/>
+            <SideCard/>
+            <SideCard/>
+            <SideCard/>
         </div>
     )
 }
@@ -57,7 +89,7 @@ function SideCardsBox(props) {
 function Deck(props) {
     return (
         <div className="deck">
-            <h2>Card!</h2>
+            <SideCard/>
         </div>
     )
 }
@@ -65,16 +97,16 @@ function Deck(props) {
 function LatestCard(props) {
     return (
         <div className="latest-card">
-            <h2>Card!</h2>
+            <SideCard/>
         </div>
     )
 }
 
 function DeckBox(props) {
     return (
-        <div>
-            <LatestCard/>
-            <Deck/>
+            <div className="row">
+                <LatestCard/>
+                <Deck/>
         </div>
     )
 }
