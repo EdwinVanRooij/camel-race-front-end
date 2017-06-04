@@ -18,8 +18,8 @@ module.exports = {
     ],
 
     output: {
-        path: __dirname,
-        filename: './public/bundle.js',
+        path: __dirname + '/public/',
+        filename: './bundle.js',
     },
     resolve: {
         root: __dirname,
@@ -38,6 +38,11 @@ module.exports = {
             LobbyStartBox: 'app/components/LobbyStartBox.jsx',
 
             Game: 'app/components/Game.jsx',
+
+            AceOfClubs: 'app/img/clubs_ace.png',
+            AceOfHearts: 'app/img/hearts_ace.png',
+            AceOfDiamonds: 'app/img/diamonds_ace.png',
+            AceOfSpades: 'app/img/spades_ace.png',
         },
         extensions: ['', '.js', '.jsx']
     },
@@ -51,6 +56,13 @@ module.exports = {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/
             },
+            {
+                test: /\.(jpg|png|svg)$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[path][name].[hash].[ext]',
+                }
+            }
         ]
     },
     devtool: 'cheap-module-eval-source-map'

@@ -1,9 +1,28 @@
 import React from 'react';
+import AceOfClubs from "AceOfClubs";
+import AceOfSpades from "AceOfSpades";
+import AceOfHearts from "AceOfHearts";
+import AceOfDiamonds from "AceOfDiamonds";
+
+function SideCard(props) {
+
+}
+
+function Camel(props) {
+    return (
+        <div>
+            <img style={{width: '200px'}} src={props.imageUrl}/>
+        </div>
+    )
+}
 
 function CamelsBox(props) {
     return (
         <div>
-            <h3>Camel 1</h3><h3>Camel 2</h3><h3>Camel 3</h3><h3>Camel 4</h3>
+            <Camel imageUrl={AceOfClubs}/>
+            <Camel imageUrl={AceOfSpades}/>
+            <Camel imageUrl={AceOfHearts}/>
+            <Camel imageUrl={AceOfDiamonds}/>
         </div>
     )
 }
