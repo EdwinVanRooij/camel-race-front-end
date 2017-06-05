@@ -7,6 +7,11 @@ class Lobby extends React.Component {
 
     state = {gameId: 'Default ID value'};
 
+    handleClick(e) {
+        e.preventDefault();
+        alert('Handling click in lobby!')
+    }
+
     render() {
         return (
             <div>
@@ -18,7 +23,7 @@ class Lobby extends React.Component {
                         <LobbyConnectedBox/>
                     </div>
                     <div className="columns small-8 medium-8 large-8 start-box">
-                        <LobbyStartBox gameId={this.state.gameId} ws={ws}/>
+                        <LobbyStartBox gameId={this.state.gameId} onClick={this.handleClick}/>
                     </div>
                 </div>
             </div>

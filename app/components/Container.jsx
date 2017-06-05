@@ -14,12 +14,12 @@ class Container extends React.Component {
     }
 
     componentDidMount() {
-        ws.onopen = () => {
-            ws.send("Connected from React");
+        this.state.ws.onopen = () => {
+            this.state.ws.send("Connected from React");
 
         };
 
-        ws.onmessage = (event) => {
+        this.state.ws.onmessage = (event) => {
             const obj = JSON.parse(event.data);
 
             this.setState({
@@ -31,7 +31,8 @@ class Container extends React.Component {
     renderChildren() {
         return React.Children.map(this.props.children, child => {
             return React.cloneElement(child, {
-                ws: ws
+                // ws: ws
+                ws: 'Test'
             });
         })
     }
