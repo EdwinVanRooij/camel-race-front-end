@@ -113,6 +113,12 @@ function DeckBox(props) {
 
 class Game extends React.Component {
 
+    componentDidMount() {
+
+        debugger;
+        this.props.ws.send('From game!')
+    }
+
     render() {
         return (
             <div>
