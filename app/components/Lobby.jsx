@@ -3,9 +3,27 @@ import LobbyConnectedBox from 'LobbyConnectedBox';
 import LobbyStartBox from 'LobbyStartBox';
 import PageHeader from 'PageHeader';
 
+var ws = new WebSocket('ws://192.168.5.115:8082/host');
+
 class Lobby extends React.Component {
 
-    render () {
+    state = {gameId: 'Default ID value'};
+
+    componentDidMount() {
+        ws.onopen = () => {
+            ws.send("Message to send");
+        };
+
+        ws.onmessage = (event) => {
+            var obj = JSON.parse(event.data);
+
+            this.setState({
+                gameId: obj.id
+            })
+        };
+    }
+
+    render() {
         return (
             <div>
                 <div>
@@ -16,7 +34,7 @@ class Lobby extends React.Component {
                         <LobbyConnectedBox/>
                     </div>
                     <div className="columns small-8 medium-8 large-8 start-box">
-                        <LobbyStartBox />
+                        <LobbyStartBox gameId={this.state.gameId}/>
                     </div>
                 </div>
             </div>
@@ -26,3 +44,7 @@ class Lobby extends React.Component {
 
 module.exports = Lobby;
 
+
+// sendMessage = message => {
+//     socket.emit('client:sendMessage', message)
+// };
