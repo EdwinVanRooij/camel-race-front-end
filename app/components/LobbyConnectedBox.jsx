@@ -9,33 +9,31 @@ function ConnectedBoxMessage(props) {
     )
 }
 
-function ConnectedBoxPlayers(props) {
+function PlayerRow(props) {
     return (
-        <div>
-            <ul>
-                <li>
-                    Rik
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    Bob
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    Tom
-                </li>
-            </ul>
-        </div>
+        <li>
+            {props.name}
+        </li>
     )
+}
+
+class ConnectedBoxPlayers extends React.Component {
+    render() {
+        return (
+            <div>
+                <ul>
+                    {this.props.players.map(player => <PlayerRow key={player.id} name={player.name}/>)}
+                </ul>
+            </div>
+        )
+    }
 }
 
 function LobbyConnectedBox(props) {
     return (
         <div>
             <ConnectedBoxMessage/>
-            <ConnectedBoxPlayers/>
+            <ConnectedBoxPlayers players={props.players}/>
         </div>
     )
 }
