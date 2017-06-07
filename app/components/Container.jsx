@@ -4,7 +4,6 @@ import Nav from 'Nav';
 
 class Container extends React.Component {
 
-    // todo; properly hand over websocket to children
     constructor(props) {
         super(props);
 
@@ -16,7 +15,6 @@ class Container extends React.Component {
     componentDidMount() {
         this.state.ws.onopen = () => {
             this.state.ws.send("Connected from React");
-
         };
 
         this.state.ws.onmessage = (event) => {

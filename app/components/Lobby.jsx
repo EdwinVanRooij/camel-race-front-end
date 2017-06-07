@@ -32,8 +32,3 @@ class Lobby extends React.Component {
 }
 
 module.exports = Lobby;
-
-
-// sendMessage = message => {
-//     socket.emit('client:sendMessage', message)
-// };
