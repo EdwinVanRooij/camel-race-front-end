@@ -19,13 +19,13 @@ class Lobby extends React.Component {
             ],
         };
         this.state.ws.onopen = () => {
-            this.state.ws.send("Connected from React");
+            this.state.ws.send("{'eventType': 'gameCreate'}");
         };
 
         this.state.ws.onmessage = (event) => {
             const obj = JSON.parse(event.data);
             switch (obj.eventType) {
-                case 'gameId':
+                case 'gameCreated':
                     this.setState({
                         gameId: obj.value.id
                     });
