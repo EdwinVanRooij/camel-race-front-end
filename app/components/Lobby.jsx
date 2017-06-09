@@ -12,10 +12,10 @@ class Lobby extends React.Component {
             ws: new WebSocket('ws://192.168.5.115:8082/host'),
             gameId: '',
             players: [
-                {id: 5, name: 'Henk'},
-                {id: 2, name: 'Klaas'},
-                {id: 3, name: 'Peter'},
-                {id: 4, name: 'Jan'},
+                {id: 9001, name: 'Henk', bidValue: '3', cardType: 'hearts'},
+                {id: 9002, name: 'Klaas', bidValue: '2', cardType: 'clubs'},
+                {id: 9003, name: 'Peter', bidValue: '4', cardType: 'diamonds'},
+                {id: 9004, name: 'Jan', bidValue: '5', cardType: 'spades'},
             ],
         };
         this.state.ws.onopen = () => {
@@ -31,9 +31,28 @@ class Lobby extends React.Component {
                     });
                     break;
                 case 'playerJoined':
-                    this.state.players.push(obj.value);
+                    let newPlayer = {id: obj.value.id, name: obj.value.name};
+                    // let newPlayer = {id: obj.value.id, name: obj.value.name, bidValue: '-', cardType: '-'};
+
+                    this.state.players.push(newPlayer);
                     this.setState({
                         players: this.state.players
+                    });
+                    break;
+                case 'playerNewBid':
+                    let newPlayer2 = {id: obj.value.player.id, name: obj.value.player.name, bidValue: obj.value.bid.value, cardType: obj.value.bid.type};
+
+                    const newPlayers = [];
+
+                    this.state.players.forEach(function(item, i) {
+                        if (item.id === newPlayer2.id)  {
+                            newPlayers.push(newPlayer2);
+                        } else {
+                            newPlayers.push(item);
+                        }
+                    });
+                    this.setState({
+                        players: newPlayers
                     });
                     break;
                 default:
