@@ -4,8 +4,8 @@ import AceOfSpades from "AceOfSpades";
 import AceOfHearts from "AceOfHearts";
 import AceOfDiamonds from "AceOfDiamonds";
 
-
 import CardUnknown from 'CardUnknown';
+import CardEmpty from 'CardEmpty';
 
 // This is a temp card, will replace deck later on
 function SideCard(props) {
@@ -15,7 +15,6 @@ function SideCard(props) {
         </div>
     )
 }
-
 function Camel(props) {
     if (props.imageUrl) {
         return (
@@ -27,7 +26,7 @@ function Camel(props) {
     else {
         return (
             <div className="camel">
-                <img src={CardUnknown}/>
+                <img src={CardEmpty}/>
             </div>
         )
     }

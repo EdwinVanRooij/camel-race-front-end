@@ -19,7 +19,7 @@ class Game extends React.Component {
             currentScreen: 'lobby'
         };
         this.state.ws.onopen = () => {
-            this.state.ws.send("{'': 'gameCreate'}");
+            this.state.ws.send("{'eventType': 'gameCreate'}");
         };
 
         this.state.ws.onmessage = (event) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PageHeader from 'PageHeader';
 
-import SideCardsBox from 'DeckBox';
+import SideCardsBox from 'SideCardsBox';
 import DeckBox from 'DeckBox';
 import CamelsBox from 'CamelsBox';
 
