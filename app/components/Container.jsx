@@ -6,10 +6,18 @@ class Container extends React.Component {
 
 
     render() {
+
+        const childrenWithProps = React.Children.map(this.props.children,
+            (child) => React.cloneElement(child, {
+                doSomething: this.doSomething
+            })
+        );
+
         return (
             <div>
                 <Nav/>
-                {this.props.children}
+
+                {childrenWithProps}
             </div>
         )
     }
