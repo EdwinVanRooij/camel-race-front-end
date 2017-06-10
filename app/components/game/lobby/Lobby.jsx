@@ -10,7 +10,6 @@ class Lobby extends React.Component {
 
         this.state = {
             ws: props.ws,
-            currentScreen: 'lobby',
             players: [],
         };
 

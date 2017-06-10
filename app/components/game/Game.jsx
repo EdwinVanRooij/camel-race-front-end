@@ -24,6 +24,7 @@ class Game extends React.Component {
     }
 
     handleOnStartClick() {
+        this.state.ws.send("{'eventType': 'gameStart', 'value': {'id': '" + this.state.gameId + "'}}");
         this.setState({currentScreen: 'race'});
     }
 
@@ -32,14 +33,23 @@ class Game extends React.Component {
             case 'lobby': {
                 return (
                     <div>
-                        <Lobby onGameIdReceived={(val) => this.handleGameIdReceived(val)} onStartClick={() => this.handleOnStartClick()} ws={this.state.ws} gameId={this.state.gameId}/>
+                        <Lobby
+                            onGameIdReceived={(val) => this.handleGameIdReceived(val)}
+                            onStartClick={() => this.handleOnStartClick()}
+                            ws={this.state.ws}
+                            gameId={this.state.gameId}
+                        />
                     </div>
                 );
             }
             case 'race': {
                 return (
                     <div>
-                        <Race/>
+                        <Race
+                            onStartClick={() => this.handleOnStartClick()}
+                            ws={this.state.ws}
+                            gameId={this.state.gameId}
+                        />
                     </div>
                 );
             }
