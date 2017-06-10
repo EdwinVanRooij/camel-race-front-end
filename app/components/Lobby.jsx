@@ -9,7 +9,7 @@ class Lobby extends React.Component {
         super(props);
 
         this.state = {
-            ws: new WebSocket('ws://192.168.5.115:8082/host'),
+            ws: props.ws,
             gameId: '',
             players: [
                 {id: 9001, name: 'Henk', bidValue: '3', cardType: 'hearts'},

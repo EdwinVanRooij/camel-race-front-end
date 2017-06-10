@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Rules(props) {
+function Author(props) {
     return (
         <div>
             <h1 className="text-center">Author</h1>
@@ -9,4 +9,4 @@ function Rules(props) {
     )
 }
 
-module.exports = Rules;
+module.exports = Author;
