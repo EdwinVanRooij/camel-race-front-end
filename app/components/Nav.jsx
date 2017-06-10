@@ -9,7 +9,7 @@ class Nav extends React.Component {
                 <div className="top-bar-left">
                     <ul className="menu">
                         <li className="menu-text">CamelRace</li>
-                        <li><IndexLink to="/" activeClassName="active">Lobby</IndexLink></li>
+                        <li><IndexLink to="/" activeClassName="active">Game</IndexLink></li>
                         <li><Link to="rules" activeClassName="active">Rules</Link></li>
                     </ul>
                 </div>

@@ -1,15 +1,14 @@
 import React from 'react';
-import LobbyConnectedBox from 'LobbyConnectedBox';
-import LobbyStartBox from 'LobbyStartBox';
-import PageHeader from 'PageHeader';
+import Lobby from 'Lobby';
+import Race from 'Race';
 
-class Lobby extends React.Component {
+class Game extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            ws: props.ws,
+            ws: new WebSocket('ws://192.168.5.115:8082/host'),
             gameId: '',
             players: [
                 {id: 9001, name: 'Henk', bidValue: '3', cardType: 'hearts'},
@@ -17,9 +16,10 @@ class Lobby extends React.Component {
                 {id: 9003, name: 'Peter', bidValue: '4', cardType: 'diamonds'},
                 {id: 9004, name: 'Jan', bidValue: '5', cardType: 'spades'},
             ],
+            currentScreen: 'lobby'
         };
         this.state.ws.onopen = () => {
-            this.state.ws.send("{'eventType': 'gameCreate'}");
+            this.state.ws.send("{'': 'gameCreate'}");
         };
 
         this.state.ws.onmessage = (event) => {
@@ -40,12 +40,17 @@ class Lobby extends React.Component {
                     });
                     break;
                 case 'playerNewBid':
-                    let newPlayer2 = {id: obj.value.player.id, name: obj.value.player.name, bidValue: obj.value.bid.value, cardType: obj.value.bid.type};
+                    let newPlayer2 = {
+                        id: obj.value.player.id,
+                        name: obj.value.player.name,
+                        bidValue: obj.value.bid.value,
+                        cardType: obj.value.bid.type
+                    };
 
                     const newPlayers = [];
 
-                    this.state.players.forEach(function(item, i) {
-                        if (item.id === newPlayer2.id)  {
+                    this.state.players.forEach(function (item, i) {
+                        if (item.id === newPlayer2.id) {
                             newPlayers.push(newPlayer2);
                         } else {
                             newPlayers.push(item);
@@ -61,29 +66,42 @@ class Lobby extends React.Component {
         };
     }
 
-    handleClick(e) {
-        e.preventDefault();
-
-        alert('handling from lobby');
+    handleOnStartClick() {
+        this.setState({currentScreen: 'race'});
     }
 
     render() {
-        return (
-            <div>
-                <div>
-                    <PageHeader title={'Lobby!'}/>
-                </div>
-                <div className="row container">
-                    <div className="columns small-4 medium-4 large-4 connected-box">
-                        <LobbyConnectedBox players={this.state.players}/>
+        switch (this.state.currentScreen) {
+            case 'lobby': {
+                return (
+                    <div>
+                        <Lobby onStartClick={() => this.handleOnStartClick()} players={this.state.players}
+                               gameId={this.state.gameId}/>
                     </div>
-                    <div className="columns small-8 medium-8 large-8 start-box">
-                        <LobbyStartBox gameId={this.state.gameId} onClick={this.handleClick}/>
+                );
+            }
+            case 'race': {
+                return (
+                    <div>
+                        <Race/>
                     </div>
-                </div>
-            </div>
-        );
+                );
+            }
+            case 'results': {
+                return (
+                    <div>
+                        <Lobby onStartClick={() => this.handleOnStartClick()} players={this.state.players}
+                               gameId={this.state.gameId}/>
+                    </div>
+                );
+            }
+            default: {
+                //statements;
+                alert('Could not find out which screen to be at, it\'s ' + this.state.currentScreen + ' rn');
+                break;
+            }
+        }
     }
 }
 
-module.exports = Lobby;
+module.exports = Game;

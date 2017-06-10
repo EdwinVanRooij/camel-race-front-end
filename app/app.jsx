@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Route, Router, IndexRoute, hashHistory} from 'react-router';
 import Container from 'Container';
-import Lobby from 'Lobby';
 import Rules from 'Rules';
 import Author from 'Author';
 import Game from 'Game';
@@ -20,9 +19,8 @@ ReactDOM.render(
 
             <Route path="rules" component={Rules}/>
             <Route path="author" component={Author}/>
-            <Route path="game" component={Game}/>
 
-            <IndexRoute component={Lobby}/>
+            <IndexRoute component={Game}/>
         </Route>
     </Router>,
     document.getElementById('app')

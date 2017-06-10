@@ -3,10 +3,11 @@ import AceOfClubs from "AceOfClubs";
 import AceOfSpades from "AceOfSpades";
 import AceOfHearts from "AceOfHearts";
 import AceOfDiamonds from "AceOfDiamonds";
-import CardUnknown from "CardUnknown";
-import CardEmpty from "CardEmpty";
-import PageHeader from 'PageHeader';
 
+
+import CardUnknown from 'CardUnknown';
+
+// This is a temp card, will replace deck later on
 function SideCard(props) {
     return (
         <div className="side-card">
@@ -26,7 +27,7 @@ function Camel(props) {
     else {
         return (
             <div className="camel">
-                <img src={CardEmpty}/>
+                <img src={CardUnknown}/>
             </div>
         )
     }
@@ -75,72 +76,4 @@ function CamelsBox(props) {
     )
 }
 
-function SideCardsBox(props) {
-    return (
-        <div className="row">
-            <SideCard/>
-            <SideCard/>
-            <SideCard/>
-            <SideCard/>
-        </div>
-    )
-}
-
-function Deck(props) {
-    return (
-        <div className="deck">
-            <SideCard/>
-        </div>
-    )
-}
-
-function LatestCard(props) {
-    return (
-        <div className="latest-card">
-            <SideCard/>
-        </div>
-    )
-}
-
-function DeckBox(props) {
-    return (
-            <div className="row">
-                <LatestCard/>
-                <Deck/>
-        </div>
-    )
-}
-
-class Game extends React.Component {
-
-    componentDidMount() {
-
-        debugger;
-        this.props.ws.send('From game!')
-    }
-
-    render() {
-        return (
-            <div>
-                <div>
-                    <PageHeader title={'Race!'}/>
-                </div>
-                <div className="row container">
-                    <div className="columns small-2 medium-2 large-2">
-                        <SideCardsBox />
-                    </div>
-
-                    <div className="columns small-8 medium-8 large-8">
-                        <CamelsBox/>
-                    </div>
-
-                    <div className="columns small-2 medium-2 large-2">
-                        <DeckBox/>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-}
-
-module.exports = Game;
+module.exports = CamelsBox;
