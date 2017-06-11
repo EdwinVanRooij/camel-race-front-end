@@ -32,8 +32,8 @@ class Race extends React.Component {
                     });
                     break;
                 case 'gameOverAllResults':
-                    console.log('Message from gameOverAllResults');
-                    // alert('Game over!');
+                    console.log('Message from gameOverAllResults: ' + obj.value);
+                    this.props.onGameOver(obj.value);
                     break;
                 default:
                     console.log('Could not determine eventType \'' + obj.eventType + '\'')

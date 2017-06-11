@@ -1,51 +1,7 @@
 import React from 'react';
-import AceOfClubs from "AceOfClubs";
-import AceOfSpades from "AceOfSpades";
-import AceOfHearts from "AceOfHearts";
-import AceOfDiamonds from "AceOfDiamonds";
 
-import CardUnknown from 'CardUnknown';
-import CardEmpty from 'CardEmpty';
-
-// This is a temp card, will replace deck later on
-function SideCard(props) {
-    return (
-        <div className="side-card">
-            <img src={CardUnknown}/>
-        </div>
-    )
-}
-function Camel(props) {
-    if (props.imageUrl) {
-        return (
-            <div className="camel">
-                <img src={props.imageUrl}/>
-            </div>
-        )
-    }
-    else {
-        return (
-            <div className="camel">
-                <img src={CardEmpty}/>
-            </div>
-        )
-    }
-}
-
-function typeToUrl(type) {
-    switch (type) {
-        case 'CLUBS':
-            return AceOfClubs;
-        case 'DIAMONDS':
-            return AceOfDiamonds;
-        case 'HEARTS':
-            return AceOfHearts;
-        case 'SPADES':
-            return AceOfSpades;
-        default:
-            alert('Could not determine card type for ' + type);
-    }
-}
+import typeToUrl from 'Util';
+import Camel from 'Camel';
 
 function renderCamelRow(camel) {
     switch (camel.position) {

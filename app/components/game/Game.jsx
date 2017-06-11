@@ -1,6 +1,7 @@
 import React from 'react';
 import Lobby from 'Lobby';
 import Race from 'Race';
+import Results from 'Results';
 
 class Game extends React.Component {
 
@@ -27,37 +28,45 @@ class Game extends React.Component {
         this.state.ws.send("{'eventType': 'gameStart', 'value': {'id': '" + this.state.gameId + "'}}");
         this.setState({currentScreen: 'race'});
     }
+    handleGameOver(results) {
+        this.setState({
+            results: results
+        });
+
+        this.setState({currentScreen: 'results'});
+    }
+    handleOnRestartClick() {
+        this.state.ws.send("{'eventType': 'gameRestart', 'value': {'id': '" + this.state.gameId + "'}}");
+        this.setState({currentScreen: 'lobby'});
+    }
 
     render() {
         switch (this.state.currentScreen) {
             case 'lobby': {
                 return (
-                    <div>
-                        <Lobby
-                            onGameIdReceived={(val) => this.handleGameIdReceived(val)}
-                            onStartClick={() => this.handleOnStartClick()}
-                            ws={this.state.ws}
-                            gameId={this.state.gameId}
-                        />
-                    </div>
+                    <Lobby
+                        onGameIdReceived={(val) => this.handleGameIdReceived(val)}
+                        onStartClick={() => this.handleOnStartClick()}
+                        ws={this.state.ws}
+                        gameId={this.state.gameId}
+                    />
                 );
             }
             case 'race': {
                 return (
-                    <div>
-                        <Race
-                            onStartClick={() => this.handleOnStartClick()}
-                            ws={this.state.ws}
-                            gameId={this.state.gameId}
-                        />
-                    </div>
+                    <Race
+                        onGameOver={(results) => this.handleGameOver(results)}
+                        ws={this.state.ws}
+                        gameId={this.state.gameId}
+                    />
                 );
             }
             case 'results': {
                 return (
-                    <div>
-                        <Lobby onStartClick={() => this.handleOnStartClick()} gameId={this.state.gameId}/>
-                    </div>
+                    <Results
+                        onReStartClick={() => this.handleOnRestartClick()}
+                        results={this.state.results}
+                    />
                 );
             }
             default: {

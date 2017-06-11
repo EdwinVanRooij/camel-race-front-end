@@ -40,6 +40,8 @@ module.exports = {
             AceOfDiamonds: 'app/img/diamonds_ace.png',
             AceOfSpades: 'app/img/spades_ace.png',
 
+            Util: 'app/util.jsx',
+
             Game: 'app/components/game/Game.jsx',
 
             Lobby: 'app/components/game/lobby/Lobby.jsx',
@@ -50,6 +52,11 @@ module.exports = {
             DeckBox: 'app/components/game/race/DeckBox.jsx',
             SideCardsBox: 'app/components/game/race/SideCardsBox.jsx',
             CamelsBox: 'app/components/game/race/CamelsBox.jsx',
+            Camel: 'app/components/game/race/Camel.jsx',
+
+            Results: 'app/components/game/results/Results.jsx',
+            ResultsBox: 'app/components/game/results/ResultsBox.jsx',
+            RestartBox: 'app/components/game/results/RestartBox.jsx',
         },
         extensions: ['', '.js', '.jsx']
     },

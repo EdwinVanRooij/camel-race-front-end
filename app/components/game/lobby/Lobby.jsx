@@ -74,6 +74,7 @@ class Lobby extends React.Component {
             </div>
         )
     }
+
 }
 
 module.exports = Lobby;
