@@ -64,7 +64,6 @@ import KingOfDiamonds from "KingOfDiamonds";
 import KingOfClubs from "KingOfClubs";
 
 function cardToUrl(t, v) {
-    console.log('Type ' + t + ' with value ' + v + ' in cardToUrl');
     switch (t) {
         case 'CLUBS':
             switch (v) {

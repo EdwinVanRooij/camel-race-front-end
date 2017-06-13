@@ -25,7 +25,7 @@ class Game extends React.Component {
     }
 
     handleOnStartClick() {
-        this.state.ws.send("{'eventType': 'gameStart', 'value': {'id': '" + this.state.gameId + "'}}");
+        this.state.ws.send("{'eventType': 'gameStart', 'value': '" + this.state.gameId + "'}");
         this.setState({currentScreen: 'race'});
     }
     handleGameOver(results) {
@@ -36,7 +36,7 @@ class Game extends React.Component {
         this.setState({currentScreen: 'results'});
     }
     handleOnRestartClick() {
-        this.state.ws.send("{'eventType': 'gameRestart', 'value': {'id': '" + this.state.gameId + "'}}");
+        this.state.ws.send("{'eventType': 'gameRestart', 'value': '" + this.state.gameId + "'}");
         this.setState({currentScreen: 'lobby'});
     }
 

@@ -23,7 +23,6 @@ class Lobby extends React.Component {
                     break;
                 case 'playerJoined':
                     let newPlayer = {id: obj.value.id, name: obj.value.name};
-                    // let newPlayer = {id: obj.value.id, name: obj.value.name, bidValue: '-', cardType: '-'};
 
                     this.state.players.push(newPlayer);
                     this.setState({
