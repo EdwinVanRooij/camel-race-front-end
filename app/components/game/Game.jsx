@@ -9,7 +9,7 @@ class Game extends React.Component {
         super(props);
 
         this.state = {
-            ws: new WebSocket('ws://192.168.5.115:8082/host'),
+            ws: new WebSocket('ws://127.0.0.1:8082/host'),
             gameId: 'default',
             currentScreen: 'lobby',
         };

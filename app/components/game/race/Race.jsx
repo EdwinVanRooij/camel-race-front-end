@@ -57,7 +57,7 @@ class Race extends React.Component {
                     </div>
 
                     <div className="columns small-2 medium-2 large-2">
-                        <DeckBox deck={this.state.gameState.deck}/>
+                        <DeckBox lastPickedCard={this.state.gameState.lastPickedCard}/>
                     </div>
                 </div>
             </div>

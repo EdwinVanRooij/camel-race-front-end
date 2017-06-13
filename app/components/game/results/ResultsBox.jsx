@@ -7,7 +7,7 @@ function ResultsBox(props) {
 
     return (
         <div className="container">
-            <Camel imageUrl={typeToUrl(props.results.winningType)}/>
+            <Camel imageUrl={typeToUrl.typeToUrl(props.results.winningType)}/>
             <ul>
                 {
                     props.results.resultItems.map(entry =>

@@ -33,13 +33,6 @@ module.exports = {
 
             PageHeader: 'app/components/PageHeader.jsx',
 
-            CardUnknown: 'app/img/card_unknown.jpg',
-            CardEmpty: 'app/img/card_empty.png',
-            AceOfClubs: 'app/img/clubs_ace.png',
-            AceOfHearts: 'app/img/hearts_ace.png',
-            AceOfDiamonds: 'app/img/diamonds_ace.png',
-            AceOfSpades: 'app/img/spades_ace.png',
-
             Util: 'app/util.jsx',
 
             Game: 'app/components/game/Game.jsx',
@@ -57,6 +50,76 @@ module.exports = {
             Results: 'app/components/game/results/Results.jsx',
             ResultsBox: 'app/components/game/results/ResultsBox.jsx',
             RestartBox: 'app/components/game/results/RestartBox.jsx',
+
+
+            // Images
+            CardUnknown: 'app/img/card_unknown.jpg',
+            CardEmpty: 'app/img/card_empty.png',
+
+            AceOfClubs: 'app/img/ace_of_clubs.png',
+            AceOfHearts: 'app/img/ace_of_hearts.png',
+            AceOfDiamonds: 'app/img/ace_of_diamonds.png',
+            AceOfSpades: 'app/img/ace_of_spades.png',
+
+            TwoOfClubs: 'app/img/2_of_clubs.png',
+            TwoOfDiamonds: 'app/img/2_of_diamonds.png',
+            TwoOfHearts: 'app/img/2_of_hearts.png',
+            TwoOfSpades: 'app/img/2_of_spades.png',
+
+            ThreeOfClubs: 'app/img/3_of_clubs.png',
+            ThreeOfDiamonds: 'app/img/3_of_diamonds.png',
+            ThreeOfHearts: 'app/img/3_of_hearts.png',
+            ThreeOfSpades: 'app/img/3_of_spades.png',
+
+            FourOfClubs: 'app/img/4_of_clubs.png',
+            FourOfDiamonds: 'app/img/4_of_diamonds.png',
+            FourOfHearts: 'app/img/4_of_hearts.png',
+            FourOfSpades: 'app/img/4_of_spades.png',
+
+            FiveOfClubs: 'app/img/5_of_clubs.png',
+            FiveOfDiamonds: 'app/img/5_of_diamonds.png',
+            FiveOfHearts: 'app/img/5_of_hearts.png',
+            FiveOfSpades: 'app/img/5_of_spades.png',
+
+            SixOfClubs: 'app/img/6_of_clubs.png',
+            SixOfDiamonds: 'app/img/6_of_diamonds.png',
+            SixOfHearts: 'app/img/6_of_hearts.png',
+            SixOfSpades: 'app/img/6_of_spades.png',
+
+            SevenOfClubs: 'app/img/7_of_clubs.png',
+            SevenOfDiamonds: 'app/img/7_of_diamonds.png',
+            SevenOfHearts: 'app/img/7_of_hearts.png',
+            SevenOfSpades: 'app/img/7_of_spades.png',
+
+            EightOfClubs: 'app/img/8_of_clubs.png',
+            EightOfDiamonds: 'app/img/8_of_diamonds.png',
+            EightOfHearts: 'app/img/8_of_hearts.png',
+            EightOfSpades: 'app/img/8_of_spades.png',
+
+            NineOfClubs: 'app/img/9_of_clubs.png',
+            NineOfDiamonds: 'app/img/9_of_diamonds.png',
+            NineOfHearts: 'app/img/9_of_hearts.png',
+            NineOfSpades: 'app/img/9_of_spades.png',
+
+            TenOfClubs: 'app/img/10_of_clubs.png',
+            TenOfDiamonds: 'app/img/10_of_diamonds.png',
+            TenOfHearts: 'app/img/10_of_hearts.png',
+            TenOfSpades: 'app/img/10_of_spades.png',
+
+            JackOfClubs: 'app/img/jack_of_clubs.png',
+            JackOfDiamonds: 'app/img/jack_of_diamonds.png',
+            JackOfHearts: 'app/img/jack_of_hearts.png',
+            JackOfSpades: 'app/img/jack_of_spades.png',
+
+            QueenOfClubs: 'app/img/queen_of_clubs.png',
+            QueenOfDiamonds: 'app/img/queen_of_diamonds.png',
+            QueenOfHearts: 'app/img/queen_of_hearts.png',
+            QueenOfSpades: 'app/img/queen_of_spades.png',
+
+            KingOfClubs: 'app/img/king_of_clubs.png',
+            KingOfDiamonds: 'app/img/king_of_diamonds.png',
+            KingOfHearts: 'app/img/king_of_hearts.png',
+            KingOfSpades: 'app/img/king_of_spades.png',
         },
         extensions: ['', '.js', '.jsx']
     },

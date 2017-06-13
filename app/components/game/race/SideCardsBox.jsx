@@ -1,11 +1,13 @@
 import React from 'react';
 import CardUnknown from 'CardUnknown';
 
+import cardToUrl from 'Util';
+
 function SideCard(props) {
     if (props.sideCard.isVisible === true) {
         return (
             <div className="side-card">
-               <h1>{props.sideCard.cardValue} of {props.sideCard.cardType}</h1>
+                <img src={cardToUrl.cardToUrl(props.sideCard.cardType,props.sideCard.cardValue)}/>
             </div>
         )
     } else if (props.sideCard.isVisible === false){

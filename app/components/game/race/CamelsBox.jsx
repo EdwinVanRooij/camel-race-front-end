@@ -12,7 +12,7 @@ function renderCamelRow(camel) {
                     <Camel/>
                     <Camel/>
                     <Camel/>
-                    <Camel imageUrl={typeToUrl(camel.cardType)}/>
+                    <Camel imageUrl={typeToUrl.typeToUrl(camel.cardType)}/>
                 </div>
             );
         case 1:
@@ -21,7 +21,7 @@ function renderCamelRow(camel) {
                     <Camel/>
                     <Camel/>
                     <Camel/>
-                    <Camel imageUrl={typeToUrl(camel.cardType)}/>
+                    <Camel imageUrl={typeToUrl.typeToUrl(camel.cardType)}/>
                     <Camel/>
                 </div>
             );
@@ -30,7 +30,7 @@ function renderCamelRow(camel) {
                 <div className="row">
                     <Camel/>
                     <Camel/>
-                    <Camel imageUrl={typeToUrl(camel.cardType)}/>
+                    <Camel imageUrl={typeToUrl.typeToUrl(camel.cardType)}/>
                     <Camel/>
                     <Camel/>
                 </div>
@@ -39,7 +39,7 @@ function renderCamelRow(camel) {
             return (
                 <div className="row">
                     <Camel/>
-                    <Camel imageUrl={typeToUrl(camel.cardType)}/>
+                    <Camel imageUrl={typeToUrl.typeToUrl(camel.cardType)}/>
                     <Camel/>
                     <Camel/>
                     <Camel/>
@@ -48,7 +48,7 @@ function renderCamelRow(camel) {
         case 4:
             return (
                 <div className="row">
-                    <Camel imageUrl={typeToUrl(camel.cardType)}/>
+                    <Camel imageUrl={typeToUrl.typeToUrl(camel.cardType)}/>
                     <Camel/>
                     <Camel/>
                     <Camel/>
