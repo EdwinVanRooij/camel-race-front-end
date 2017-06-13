@@ -9,7 +9,7 @@ import CamelsBox from 'CamelsBox';
 // var normal_delay = 2;
 // var short_delay = 1;
 var long_delay = 1;
-var normal_delay = 1;
+var normal_delay = 2.5;
 var short_delay = 0.5;
 
 class Race extends React.Component {
@@ -30,18 +30,57 @@ class Race extends React.Component {
             const obj = JSON.parse(event.data);
             switch (obj.eventType) {
                 case 'gameStartedWithState':
-                    console.log('Message from gameStartedWithState');
                     this.setState({
                         gameState: obj.value
                     });
-                    this.state.ws.send("{'eventType': 'newRound', 'value': '" + this.state.gameId + "'}");
+                    setTimeout(() => this.pickCard(), normal_delay * 1000);
                     break;
-                case 'roundResults':
-                    console.log('Message from newRound');
 
-                    setTimeout(() => this.handleRoundResults(obj.value), long_delay * 1000);
+                case 'pickedCard':
+                    var card = obj.value;
+
+                    setTimeout(() => this.handlePickedCard(card), normal_delay * 1000);
+
+                    this.sendMessageWithId('camelWon');
                     break;
-                case 'gameOverAllResults':
+
+                case 'camelDidWin':
+                    var camel = obj.value;
+                    setTimeout(() => this.handleCamelWon(camel), normal_delay * 1000);
+
+                    this.sendMessageWithId('getAllResults');
+                    break;
+
+                case 'camelDidNotWin':
+                    this.sendMessageWithId('moveCardsByLatest');
+                    break;
+
+                case 'newCamelPositions':
+                    var camels = obj.value;
+                    setTimeout(() => this.handleNewCamelPositions(camels), normal_delay * 1000);
+
+                    this.sendMessageWithId('shouldSideCardTurn');
+                    break;
+
+                case 'shouldSideCardTurnNo':
+                    setTimeout(() => this.pickCard(), normal_delay * 1000);
+                    break;
+
+                case 'shouldSideCardTurnYes':
+                    var sideCardList = obj.value;
+                    setTimeout(() => this.handleNewSideCardPositions(sideCardList), normal_delay * 1000);
+
+                    this.sendMessageWithId('newCamelList');
+                    break;
+
+                case 'newCamelList':
+                    var camelList = obj.value;
+                    setTimeout(() => this.handleNewCamelPositions(camelList), normal_delay * 1000);
+
+                    setTimeout(() => this.pickCard(), normal_delay * 1000);
+                    break;
+
+                case 'allResults':
                     console.log('Message from gameOverAllResults: ' + obj.value);
                     this.props.onGameOver(obj.value);
                     break;
@@ -51,28 +90,43 @@ class Race extends React.Component {
         };
     }
 
-    handleRoundResults(roundResults) {
-        this.state.gameState.lastPickedCard = roundResults.lastPickedCard;
+    sendMessageWithId(eventType) {
+        this.state.ws.send("{'eventType': '" + eventType + "', 'value': '" + this.state.gameId + "'}");
+    }
+
+    pickCard() {
+        this.sendMessageWithId('pickCard');
+    }
+
+    handlePickedCard(card) {
+        this.state.gameState.lastPickedCard = card;
         var newState = this.state.gameState;
         this.setState({
             gameState: newState
         });
-
-        this.handlePossibleWinner(roundResults);
+        // this.handlePossibleWinner(roundResults);
     }
 
-    handlePossibleWinner(roundResults) {
-        if (roundResults.gameEnded === true) {
-            setTimeout(() => this.handleWinner(roundResults.winner), normal_delay * 1000);
-        } else if (roundResults.gameEnded === false) {
-            setTimeout(() => this.moveCamel(roundResults), short_delay * 1000);
-        } else {
-            console.log('Could not determine \'gameEnded\' value, it\'s ' + roundResults.gameEnded);
-        }
-    }
-
-    handleWinner(camel) {
+    handleCamelWon(camel) {
         console.log('Camel ' + camel.cardType + ' won the game!');
+    }
+
+    handleNewCamelPositions(camels) {
+        this.state.gameState.camelList = camels;
+        var newState = this.state.gameState;
+
+        this.setState({
+            gameState: newState
+        });
+    }
+
+    handleNewSideCardPositions(sidecards) {
+        this.state.gameState.sideCardList = sidecards;
+        var newState = this.state.gameState;
+
+        this.setState({
+            gameState: newState
+        });
     }
 
     moveCamel(roundResults) {
