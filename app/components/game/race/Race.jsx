@@ -8,9 +8,9 @@ import CamelsBox from 'CamelsBox';
 // var long_delay = 3;
 // var normal_delay = 2;
 // var short_delay = 1;
-var long_delay = 1;
-var normal_delay = 2.5;
-var short_delay = 0.5;
+var long_delay = 2;
+var normal_delay = 1;
+var short_delay = 0.75;
 
 class Race extends React.Component {
 
@@ -39,27 +39,27 @@ class Race extends React.Component {
                 case 'pickedCard':
                     var card = obj.value;
 
-                    setTimeout(() => this.handlePickedCard(card), normal_delay * 1000);
+                    setTimeout(() =>this.handlePickedCard(card), normal_delay * 1000);
 
-                    this.sendMessageWithId('camelWon');
+                    setTimeout(() =>this.sendMessageWithId('camelWon'), normal_delay * 1000);
                     break;
 
                 case 'camelDidWin':
                     var camel = obj.value;
-                    setTimeout(() => this.handleCamelWon(camel), normal_delay * 1000);
+                    setTimeout(() =>this.handleCamelWon(camel), normal_delay * 1000);
 
-                    this.sendMessageWithId('getAllResults');
+                    setTimeout(() =>this.sendMessageWithId('getAllResults'), normal_delay * 1000);
                     break;
 
                 case 'camelDidNotWin':
-                    this.sendMessageWithId('moveCardsByLatest');
+                    setTimeout(() => this.sendMessageWithId('moveCardsByLatest'), normal_delay * 1000);
                     break;
 
                 case 'newCamelPositions':
                     var camels = obj.value;
-                    setTimeout(() => this.handleNewCamelPositions(camels), normal_delay * 1000);
+                    setTimeout(() => this.handleNewCamelPositions(camels), short_delay * 1000);
 
-                    this.sendMessageWithId('shouldSideCardTurn');
+                    setTimeout(() => this.sendMessageWithId('shouldSideCardTurn'), normal_delay * 1000);
                     break;
 
                 case 'shouldSideCardTurnNo':
@@ -70,7 +70,7 @@ class Race extends React.Component {
                     var sideCardList = obj.value;
                     setTimeout(() => this.handleNewSideCardPositions(sideCardList), normal_delay * 1000);
 
-                    this.sendMessageWithId('newCamelList');
+                    setTimeout(() => this.sendMessageWithId('newCamelList'), short_delay * 1000);
                     break;
 
                 case 'newCamelList':
@@ -142,7 +142,7 @@ class Race extends React.Component {
 
     handlePossibleSideCardTurn(roundResults) {
         if (roundResults.shouldTurnSideCard === true) {
-            setTimeout(() => this.turnSideCard(roundResults), normal_delay * 1000);
+            setTimeout(this.turnSideCard(roundResults), normal_delay * 1000);
         } else if (roundResults.shouldTurnSideCard === false) {
             // Start a new round, we're done with this one.
             this.state.ws.send("{'eventType': 'newRound', 'value': '" + this.state.gameId + "'}");
@@ -159,8 +159,7 @@ class Race extends React.Component {
             gameState: newState
         });
 
-        setTimeout(() => this.moveCamelBack(roundResults.newFinalCamelPositions), normal_delay * 1000);
-        //
+        setTimeout(this.moveCamelBack(roundResults.newFinalCamelPositions), normal_delay * 1000);
     }
 
     moveCamelBack(camelList) {
