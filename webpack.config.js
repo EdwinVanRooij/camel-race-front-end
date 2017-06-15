@@ -50,7 +50,12 @@ module.exports = {
             Results: 'app/components/game/results/Results.jsx',
             ResultsBox: 'app/components/game/results/ResultsBox.jsx',
             RestartBox: 'app/components/game/results/RestartBox.jsx',
+            PlayerResults: 'app/components/game/results/PlayerResults.jsx',
 
+            // Sound
+            CardFlipSound: 'app/sound/card_flip.mp3',
+            VictorySound: 'app/sound/victory.mp3',
+            RunescapeSound: 'app/sound/runescape_sound.mp3',
 
             // Images
             CardUnknown: 'app/img/card_unknown.jpg',
@@ -134,7 +139,7 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/
             },
             {
-                test: /\.(jpg|png|svg)$/,
+                test: /\.(jpg|png|svg|mp3)$/,
                 loader: 'file-loader',
                 options: {
                     name: '[hash].[ext]',

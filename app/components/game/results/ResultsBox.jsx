@@ -3,20 +3,21 @@ import React from 'react';
 import typeToUrl from 'Util';
 import Camel from 'Camel';
 
+import VictorySound from 'VictorySound';
+import Sound from 'react-sound';
+
 function ResultsBox(props) {
+
 
     return (
         <div className="container">
             <Camel imageUrl={typeToUrl.typeToUrl(props.results.winningType)}/>
-            <ul>
-                {
-                    props.results.resultItems.map(entry =>
-                    <div key={entry.player.id} >
-                    Player {entry.player.name} with bid {entry.bid.value} on {entry.bid.type}
-                    </div>
-                    )
-                }
-            </ul>
+            <Sound
+                url={VictorySound}
+                playStatus={Sound.status.PLAYING}
+                volume={80}
+                playFromPosition={0}
+            />
         </div>
     )
 }

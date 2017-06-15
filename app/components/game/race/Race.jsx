@@ -5,20 +5,17 @@ import SideCardsBox from 'SideCardsBox';
 import DeckBox from 'DeckBox';
 import CamelsBox from 'CamelsBox';
 
-// var long_delay = 3;
-// var normal_delay = 2;
-// var short_delay = 1;
+// var long_delay = 2;
+// var normal_delay = 1;
+// var short_delay = 0.75;
 var long_delay = 2;
-var normal_delay = 1;
+var normal_delay = 1.50;
 var short_delay = 0.75;
 
 class Race extends React.Component {
 
-
     constructor(props) {
         super(props);
-
-
         this.state = {
             ws: props.ws,
             gameId: props.gameId,
@@ -33,7 +30,7 @@ class Race extends React.Component {
                     this.setState({
                         gameState: obj.value
                     });
-                    setTimeout(() => this.pickCard(), normal_delay * 1000);
+                    setTimeout(() => this.pickCard(), long_delay * 1000);
                     break;
 
                 case 'pickedCard':
@@ -41,7 +38,7 @@ class Race extends React.Component {
 
                     setTimeout(() =>this.handlePickedCard(card), normal_delay * 1000);
 
-                    setTimeout(() =>this.sendMessageWithId('camelWon'), normal_delay * 1000);
+                    setTimeout(() =>this.sendMessageWithId('camelWon'), normal_delay * 500);
                     break;
 
                 case 'camelDidWin':
@@ -52,12 +49,12 @@ class Race extends React.Component {
                     break;
 
                 case 'camelDidNotWin':
-                    setTimeout(() => this.sendMessageWithId('moveCardsByLatest'), normal_delay * 1000);
+                    setTimeout(() => this.sendMessageWithId('moveCardsByLatest'), normal_delay * 500);
                     break;
 
                 case 'newCamelPositions':
                     var camels = obj.value;
-                    setTimeout(() => this.handleNewCamelPositions(camels), short_delay * 1000);
+                    setTimeout(() => this.handleNewCamelPositions(camels), normal_delay * 1000);
 
                     setTimeout(() => this.sendMessageWithId('shouldSideCardTurn'), normal_delay * 1000);
                     break;
@@ -70,7 +67,7 @@ class Race extends React.Component {
                     var sideCardList = obj.value;
                     setTimeout(() => this.handleNewSideCardPositions(sideCardList), normal_delay * 1000);
 
-                    setTimeout(() => this.sendMessageWithId('newCamelList'), short_delay * 1000);
+                    setTimeout(() => this.sendMessageWithId('newCamelList'), normal_delay * 1000);
                     break;
 
                 case 'newCamelList':
@@ -127,50 +124,6 @@ class Race extends React.Component {
         this.setState({
             gameState: newState
         });
-    }
-
-    moveCamel(roundResults) {
-        this.state.gameState.camelList = roundResults.newForwardCamelPositions;
-        var newState = this.state.gameState;
-
-        this.setState({
-            gameState: newState
-        });
-
-        this.handlePossibleSideCardTurn(roundResults);
-    }
-
-    handlePossibleSideCardTurn(roundResults) {
-        if (roundResults.shouldTurnSideCard === true) {
-            setTimeout(this.turnSideCard(roundResults), normal_delay * 1000);
-        } else if (roundResults.shouldTurnSideCard === false) {
-            // Start a new round, we're done with this one.
-            this.state.ws.send("{'eventType': 'newRound', 'value': '" + this.state.gameId + "'}");
-        } else {
-            console.log('Could not determine \'shouldTurnSideCard\' value, it\'s ' + roundResults.shouldTurnSideCard);
-        }
-    }
-
-    turnSideCard(roundResults) {
-        this.state.gameState.sideCardList = roundResults.newSideCardStatuses;
-        var newState = this.state.gameState;
-
-        this.setState({
-            gameState: newState
-        });
-
-        setTimeout(this.moveCamelBack(roundResults.newFinalCamelPositions), normal_delay * 1000);
-    }
-
-    moveCamelBack(camelList) {
-        this.state.gameState.camelList = camelList;
-        var newState = this.state.gameState;
-
-        this.setState({
-            gameState: newState
-        });
-
-        this.state.ws.send("{'eventType': 'newRound', 'value': '" + this.state.gameId + "'}");
     }
 
     render() {

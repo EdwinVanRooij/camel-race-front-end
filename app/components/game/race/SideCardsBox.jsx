@@ -6,14 +6,9 @@ import cardToUrl from 'Util';
 function SideCard(props) {
     if (props.sideCard.isVisible === true) {
         return (
-            <div className="flip-container this.classList.toggle('hover')">
-                <div className="side-card front">
-                    <img src={CardUnknown}/>
-                </div>
-                <div className="side-card back">
+                <div className="side-card">
                     <img src={cardToUrl.cardToUrl(props.sideCard.cardType, props.sideCard.cardValue)}/>
                 </div>
-            </div>
         )
     } else if (props.sideCard.isVisible === false) {
         return (

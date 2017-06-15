@@ -1,5 +1,7 @@
 import React from 'react';
 import CardUnknown from 'CardUnknown';
+import CardFlipSound from 'CardFlipSound';
+import Sound from 'react-sound';
 
 import cardToUrl from 'Util';
 
@@ -24,7 +26,7 @@ function DeckBox(props) {
     if (!props.lastPickedCard) {
         return (
             <div>
-                <h1>Wait a moment...</h1>
+                <h1>Loading...</h1>
             </div>
         )
     }
@@ -33,6 +35,12 @@ function DeckBox(props) {
         <div className="row">
             <LatestCard lastPickedCard={props.lastPickedCard}/>
             <Deck/>
+            <Sound
+                url={CardFlipSound}
+                playStatus={Sound.status.PLAYING}
+                volume={80}
+                playFromPosition={0}
+            />
         </div>
     )
 }

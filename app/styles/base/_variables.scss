@@ -9,13 +9,18 @@ $light-grey: #fafafa;
 $light-grey-border: #eeeeee;
 $white: #ffffff;
 $green: #2ecc71;
+$blue: #2980b9;
 
+$player-names-color-winning: $green;
+$player-names-color-winning: $blue;
 
 $container-background-color: $light-grey;
 $container-border-color: $light-grey-border;
 
 $connected-box-background-color: $grey;
 $connected-box-border-color: $light-grey-border;
-$player-names-color: $green;
+
+$player-names-color-has-bid: $green;
+$player-names-color-has-no-bid: $blue;
 
 $start-box-background-color: $light-grey;
