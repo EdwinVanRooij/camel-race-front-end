@@ -5,9 +5,13 @@ import SideCardsBox from 'SideCardsBox';
 import DeckBox from 'DeckBox';
 import CamelsBox from 'CamelsBox';
 
+import HorseRace from 'HorseRace';
+import Sound from 'react-sound';
+
 // var long_delay = 2;
 // var normal_delay = 1;
 // var short_delay = 0.75;
+var start_delay = 12.5;
 var long_delay = 2;
 var normal_delay = 1.50;
 var short_delay = 0.75;
@@ -30,7 +34,7 @@ class Race extends React.Component {
                     this.setState({
                         gameState: obj.value
                     });
-                    setTimeout(() => this.pickCard(), long_delay * 1000);
+                    setTimeout(() => this.pickCard(), start_delay * 1000);
                     break;
 
                 case 'pickedCard':
@@ -145,6 +149,11 @@ class Race extends React.Component {
                         <DeckBox lastPickedCard={this.state.gameState.lastPickedCard}/>
                     </div>
                 </div>
+                <Sound
+                    url={HorseRace}
+                    playStatus={Sound.status.PLAYING}
+                    playFromPosition={0}
+                />
             </div>
         );
     }

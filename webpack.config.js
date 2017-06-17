@@ -56,6 +56,7 @@ module.exports = {
             CardFlipSound: 'app/sound/card_flip.mp3',
             VictorySound: 'app/sound/victory.mp3',
             RunescapeSound: 'app/sound/runescape_sound.mp3',
+            HorseRace: 'app/sound/horse_race.mp3',
 
             // Images
             CardUnknown: 'app/img/card_unknown.jpg',
