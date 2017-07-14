@@ -10,7 +10,7 @@ class LobbyStartBox extends React.Component {
 
         return (
             <div>
-                <h3 className="text-center lobby-box-header game-id">#{this.props.gameId}</h3>
+                <h1 className="text-center lobby-box-header game-id">&rarr;&emsp;{this.props.gameId}&emsp;&larr;</h1>
                 <button className="large primary expanded button" onClick={this.props.onStartClick}>Start</button>
                 <Sound
                     url={RunescapeSound}

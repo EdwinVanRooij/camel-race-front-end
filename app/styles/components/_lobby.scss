@@ -15,25 +15,31 @@
 
 // Start box
 
-//@keyframes game-id-keyframes {
-//  0% {
-//    color: red;
-//  }
-//  50% {
-//    color: blue;
-//  }
-//  100% {
-//    color: red;
-//  }
-//}
+@keyframes game-id-keyframes {
+  0% {
+    color: rgb(39, 174, 96);
+  }
+  25% {
+    color: rgb(52, 73, 94);
+  }
+  50% {
+    color: rgb(52, 152, 219);
+  }
+  75% {
+    color: rgb(231, 76, 60);
+  }
+  100% {
+    color: rgb(39, 174, 96);
+  }
+}
 
 .start-box {
   padding: $space-large;
 
   .game-id {
-    //animation: game-id-keyframes;
-    //animation-duration: 0.2s;
-    //animation-iteration-count: infinite;
+    animation: game-id-keyframes;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
   }
 }
 

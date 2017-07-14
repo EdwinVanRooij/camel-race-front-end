@@ -30,6 +30,7 @@ class Lobby extends React.Component {
                     });
                     break;
                 case 'playerNewBid':
+                case 'playerReady':
                     let newPlayer2 = {
                         id: obj.value.player.id,
                         name: obj.value.player.name,
@@ -50,13 +51,35 @@ class Lobby extends React.Component {
                         players: newPlayers
                     });
                     break;
+
+                case 'gameReady':
+                    console.log('Game is ready!');
+                    this.setState({
+                        gameReady: true
+                    });
+
+                    let seconds = 5;
+                    let self = this;
+                    setTimeout(function () {
+                        if (self.state.gameReady === true) {
+                            self.props.onStartClick();
+                        }
+                    }, seconds * 1000);
+
+                    break;
+                case 'playerNotReady':
+                    console.log('Game is no longer ready!');
+                    this.setState({
+                        gameReady: false
+                    });
+                    break;
                 default:
                     console.log('Could not determine eventType \'' + obj.eventType + '\'')
             }
         };
     }
 
-    render () {
+    render() {
         return (
             <div>
                 <div>
@@ -73,7 +96,6 @@ class Lobby extends React.Component {
             </div>
         )
     }
-
 }
 
 module.exports = Lobby;
