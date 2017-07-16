@@ -8,13 +8,13 @@ import CamelsBox from 'CamelsBox';
 import HorseRace from 'HorseRace';
 import Sound from 'react-sound';
 
+// var start_delay = 12.5;
 // var long_delay = 2;
-// var normal_delay = 1;
+// var normal_delay = 1.50;
 // var short_delay = 0.75;
-var start_delay = 12.5;
-var long_delay = 2;
-var normal_delay = 1.50;
-var short_delay = 0.75;
+
+var start_delay = 1;
+var normal_delay = 0.1;
 
 class Race extends React.Component {
 
@@ -133,9 +133,7 @@ class Race extends React.Component {
     render() {
         return (
             <div>
-                <div>
-                    <PageHeader title={'Race!'}/>
-                </div>
+                <br/>
                 <div className="row container">
                     <div className="columns small-2 medium-2 large-2">
                         <SideCardsBox sideCardList={this.state.gameState.sideCardList}/>

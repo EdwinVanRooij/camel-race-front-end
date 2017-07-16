@@ -43,6 +43,16 @@
   }
 }
 
+.ready-indicator {
+  padding: $space-large;
+
+  .game-id {
+    animation: game-id-keyframes;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+  }
+}
+
 .lobby-box-header {
   margin: $space-medium;
 }

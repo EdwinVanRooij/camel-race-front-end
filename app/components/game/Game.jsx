@@ -67,6 +67,7 @@ class Game extends React.Component {
                 return (
                     <Results
                         onRestartClick={() => this.handleOnRestartClick()}
+                        ws={this.state.ws}
                         results={this.state.results}
                     />
                 );

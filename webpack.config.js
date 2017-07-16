@@ -40,6 +40,7 @@ module.exports = {
             Lobby: 'app/components/game/lobby/Lobby.jsx',
             LobbyConnectedBox: 'app/components/game/lobby/LobbyConnectedBox.jsx',
             LobbyStartBox: 'app/components/game/lobby/LobbyStartBox.jsx',
+            LobbyReadyIndicator: 'app/components/game/lobby/LobbyReadyIndicator.jsx',
 
             Race: 'app/components/game/race/Race.jsx',
             DeckBox: 'app/components/game/race/DeckBox.jsx',
@@ -59,6 +60,9 @@ module.exports = {
             HorseRace: 'app/sound/horse_race.mp3',
 
             // Images
+            Ready: 'app/img/ready.png',
+            Waiting: 'app/img/waiting.png',
+
             CardUnknown: 'app/img/card_unknown.jpg',
             CardEmpty: 'app/img/card_empty.png',
 

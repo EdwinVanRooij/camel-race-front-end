@@ -2,6 +2,7 @@ import React from 'react';
 import PageHeader from 'PageHeader';
 import LobbyConnectedBox from 'LobbyConnectedBox';
 import LobbyStartBox from 'LobbyStartBox';
+import LobbyReadyIndicator from 'LobbyReadyIndicator';
 
 class Lobby extends React.Component {
 
@@ -91,6 +92,9 @@ class Lobby extends React.Component {
                     </div>
                     <div className="columns small-8 medium-8 large-8 start-box">
                         <LobbyStartBox onStartClick={this.props.onStartClick} gameId={this.props.gameId}/>
+                    </div>
+                    <div className="columns small-8 medium-8 large-8 ready-indicator">
+                        <LobbyReadyIndicator gameReady={this.state.gameReady}/>
                     </div>
                 </div>
             </div>
