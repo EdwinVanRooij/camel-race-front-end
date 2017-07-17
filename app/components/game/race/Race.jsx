@@ -13,8 +13,8 @@ import Sound from 'react-sound';
 // var normal_delay = 1.50;
 // var short_delay = 0.75;
 
-var start_delay = 1;
-var normal_delay = 0.1;
+var start_delay = 3;
+var normal_delay = 0.25;
 
 class Race extends React.Component {
 

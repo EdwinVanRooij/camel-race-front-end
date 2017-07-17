@@ -6,7 +6,7 @@ import Waiting from "Waiting";
 
 function ReadyIndicator(props) {
     return (
-        <div className="ready-indicator-image">
+        <div>
             <img src={Ready}/>
         </div>
     )
@@ -15,7 +15,7 @@ function ReadyIndicator(props) {
 
 function NotReadyIndicator(props) {
     return (
-        <div className="ready-indicator-image">
+        <div>
             <img src={Waiting}/>
         </div>
     )

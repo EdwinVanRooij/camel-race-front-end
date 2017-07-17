@@ -63,6 +63,7 @@ module.exports = {
             Ready: 'app/img/ready.png',
             Waiting: 'app/img/waiting.png',
 
+            CardDeck: 'app/img/deck.png',
             CardUnknown: 'app/img/card_unknown.jpg',
             CardEmpty: 'app/img/card_empty.png',
 

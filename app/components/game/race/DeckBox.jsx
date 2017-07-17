@@ -2,6 +2,7 @@ import React from 'react';
 import CardUnknown from 'CardUnknown';
 import CardFlipSound from 'CardFlipSound';
 import Sound from 'react-sound';
+import Waiting from "Waiting";
 
 import cardToUrl from 'Util';
 
@@ -25,9 +26,9 @@ function LatestCard(props) {
 function DeckBox(props) {
     if (!props.lastPickedCard) {
         return (
-            <div>
-                <h1>Loading...</h1>
-            </div>
+        <div>
+            <img src={Waiting}/>
+        </div>
         )
     }
 
