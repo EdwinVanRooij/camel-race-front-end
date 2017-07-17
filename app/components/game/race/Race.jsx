@@ -8,18 +8,17 @@ import CamelsBox from 'CamelsBox';
 import HorseRace from 'HorseRace';
 import Sound from 'react-sound';
 
-// var start_delay = 12.5;
-// var long_delay = 2;
-// var normal_delay = 1.50;
-// var short_delay = 0.75;
-
-var start_delay = 3;
-var normal_delay = 0.25;
 
 class Race extends React.Component {
 
     constructor(props) {
         super(props);
+        this.start_delay = 12.5;
+        // var normal_delay = 1.50;
+        // var short_delay = 0.75;
+        this.normal_delay = 1.50 * 0.7;
+        this.short_delay = 0.75 * 0.7;
+
         this.state = {
             ws: props.ws,
             gameId: props.gameId,
@@ -34,51 +33,51 @@ class Race extends React.Component {
                     this.setState({
                         gameState: obj.value
                     });
-                    setTimeout(() => this.pickCard(), start_delay * 1000);
+                    setTimeout(() => this.pickCard(), this.start_delay * 1000);
                     break;
 
                 case 'pickedCard':
                     var card = obj.value;
 
-                    setTimeout(() =>this.handlePickedCard(card), normal_delay * 1000);
+                    setTimeout(() => this.handlePickedCard(card), this.normal_delay * 1000);
 
-                    setTimeout(() =>this.sendMessageWithId('camelWon'), normal_delay * 500);
+                    setTimeout(() => this.sendMessageWithId('camelWon'), this.short_delay * 1000);
                     break;
 
                 case 'camelDidWin':
                     var camel = obj.value;
-                    setTimeout(() =>this.handleCamelWon(camel), normal_delay * 1000);
+                    setTimeout(() => this.handleCamelWon(camel), this.normal_delay * 1000);
 
-                    setTimeout(() =>this.sendMessageWithId('getAllResults'), normal_delay * 1000);
+                    setTimeout(() => this.sendMessageWithId('getAllResults'), this.normal_delay * 1000);
                     break;
 
                 case 'camelDidNotWin':
-                    setTimeout(() => this.sendMessageWithId('moveCardsByLatest'), normal_delay * 500);
+                    setTimeout(() => this.sendMessageWithId('moveCardsByLatest'), this.short_delay * 1000);
                     break;
 
                 case 'newCamelPositions':
                     var camels = obj.value;
-                    setTimeout(() => this.handleNewCamelPositions(camels), normal_delay * 1000);
+                    setTimeout(() => this.handleNewCamelPositions(camels), this.normal_delay * 1000);
 
-                    setTimeout(() => this.sendMessageWithId('shouldSideCardTurn'), normal_delay * 1000);
+                    setTimeout(() => this.sendMessageWithId('shouldSideCardTurn'), this.normal_delay * 1000);
                     break;
 
                 case 'shouldSideCardTurnNo':
-                    setTimeout(() => this.pickCard(), normal_delay * 1000);
+                    setTimeout(() => this.pickCard(), this.normal_delay * 1000);
                     break;
 
                 case 'shouldSideCardTurnYes':
                     var sideCardList = obj.value;
-                    setTimeout(() => this.handleNewSideCardPositions(sideCardList), normal_delay * 1000);
+                    setTimeout(() => this.handleNewSideCardPositions(sideCardList), this.normal_delay * 1000);
 
-                    setTimeout(() => this.sendMessageWithId('newCamelList'), normal_delay * 1000);
+                    setTimeout(() => this.sendMessageWithId('newCamelList'), this.normal_delay * 1000);
                     break;
 
                 case 'newCamelList':
                     var camelList = obj.value;
-                    setTimeout(() => this.handleNewCamelPositions(camelList), normal_delay * 1000);
+                    setTimeout(() => this.handleNewCamelPositions(camelList), this.normal_delay * 1000);
 
-                    setTimeout(() => this.pickCard(), normal_delay * 1000);
+                    setTimeout(() => this.pickCard(), this.normal_delay * 1000);
                     break;
 
                 case 'allResults':
@@ -87,6 +86,15 @@ class Race extends React.Component {
                     break;
                 default:
                     console.log('Could not determine eventType \'' + obj.eventType + '\'')
+            }
+            const new_normal_delay = this.normal_delay * 1.015;
+            if (new_normal_delay <= 2) {
+                this.normal_delay = new_normal_delay;
+            }
+
+            const new_short_delay = this.short_delay * 1.015;
+            if (new_short_delay <= 1) {
+                this.short_delay = new_short_delay;
             }
         };
     }
