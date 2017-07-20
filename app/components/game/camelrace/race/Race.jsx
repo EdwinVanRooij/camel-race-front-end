@@ -1,9 +1,9 @@
 import React from 'react';
 import PageHeader from 'PageHeader';
 
-import SideCardsBox from 'SideCardsBox';
-import DeckBox from 'DeckBox';
-import CamelsBox from 'CamelsBox';
+import SideCardsBox from 'app/components/game/camelrace/race/SideCardsBox';
+import DeckBox from 'app/components/game/camelrace/race/DeckBox';
+import CamelsBox from 'app/components/game/camelrace/race/CamelsBox';
 
 import HorseRace from 'HorseRace';
 import Sound from 'react-sound';

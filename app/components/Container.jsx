@@ -3,9 +3,7 @@ import Nav from 'Nav';
 
 
 class Container extends React.Component {
-
     render() {
-
         return (
             <div>
                 <Nav/>

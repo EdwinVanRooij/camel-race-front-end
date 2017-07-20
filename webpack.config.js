@@ -26,32 +26,33 @@ module.exports = {
         alias: {
             Container: 'app/components/Container.jsx',
             Nav: 'app/components/Nav.jsx',
-            Rules: 'app/components/Rules.jsx',
             Author: 'app/components/Author.jsx',
 
             applicationStyles: 'app/styles/app.scss',
+            Util: 'app/util.jsx',
 
             PageHeader: 'app/components/PageHeader.jsx',
 
-            Util: 'app/util.jsx',
+            GamePickContainer: 'app/components/picker/GamePickContainer.jsx',
+            GamePickItem: 'app/components/picker/GamePickItem.jsx',
 
-            Game: 'app/components/game/Game.jsx',
+            Game: 'app/components/game/camelrace/race/Game.jsx',
 
             Lobby: 'app/components/game/lobby/Lobby.jsx',
             LobbyConnectedBox: 'app/components/game/lobby/LobbyConnectedBox.jsx',
             LobbyStartBox: 'app/components/game/lobby/LobbyStartBox.jsx',
             LobbyReadyIndicator: 'app/components/game/lobby/LobbyReadyIndicator.jsx',
 
-            Race: 'app/components/game/race/Race.jsx',
-            DeckBox: 'app/components/game/race/DeckBox.jsx',
-            SideCardsBox: 'app/components/game/race/SideCardsBox.jsx',
-            CamelsBox: 'app/components/game/race/CamelsBox.jsx',
-            Camel: 'app/components/game/race/Camel.jsx',
+            Race: 'app/components/game/camelrace/race/Race.jsx',
+            DeckBox: 'app/components/game/camelrace/race/DeckBox.jsx',
+            SideCardsBox: 'app/components/game/camelrace/race/SideCardsBox.jsx',
+            CamelsBox: 'app/components/game/camelrace/race/CamelsBox.jsx',
+            Camel: 'app/components/game/camelrace/race/Camel.jsx',
 
-            Results: 'app/components/game/results/Results.jsx',
-            ResultsBox: 'app/components/game/results/ResultsBox.jsx',
-            RestartBox: 'app/components/game/results/RestartBox.jsx',
-            PlayerResults: 'app/components/game/results/PlayerResults.jsx',
+            Results: 'app/components/game/camelrace/results/Results.jsx',
+            ResultsBox: 'app/components/game/camelrace/results/ResultsBox.jsx',
+            RestartBox: 'app/components/game/camelrace/results/RestartBox.jsx',
+            PlayerResults: 'app/components/game/camelrace/results/PlayerResults.jsx',
 
             // Sound
             CardFlipSound: 'app/sound/card_flip.mp3',

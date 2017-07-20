@@ -1,7 +1,7 @@
 import React from 'react';
 
 import typeToUrl from 'Util';
-import Camel from 'Camel';
+import Camel from 'app/components/game/camelrace/race/Camel';
 
 function renderCamelRow(camel) {
     switch (camel.position) {

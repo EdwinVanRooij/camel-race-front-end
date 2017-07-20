@@ -1,9 +1,9 @@
 import React from 'react';
 import PageHeader from 'PageHeader';
 
-import RestartBox from 'RestartBox';
-import ResultsBox from 'ResultsBox';
-import PlayerResults from 'PlayerResults';
+import RestartBox from 'app/components/game/camelrace/results/RestartBox';
+import ResultsBox from 'app/components/game/camelrace/results/ResultsBox';
+import PlayerResults from 'app/components/game/camelrace/results/PlayerResults';
 
 class Results extends React.Component {
 
