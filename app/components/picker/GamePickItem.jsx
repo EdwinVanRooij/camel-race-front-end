@@ -1,17 +1,24 @@
 import React from 'react';
-import PageHeader from 'app/components/PageHeader';
-import LobbyConnectedBox from 'LobbyConnectedBox';
-import LobbyStartBox from 'LobbyStartBox';
-import LobbyReadyIndicator from 'LobbyReadyIndicator';
 
 class GamePickItem extends React.Component {
 
 
     render() {
         return (
-            <div>
-                <h1 className="text-center">Author</h1>
-                <p>Edwin van Rooij.</p>
+            <div className="game-pick-item">
+                <div className="row" onClick={this.props.onClick}>
+                    <div className="columns small-4 medium-4 large-4 no-padding description-header">
+                        <img src={this.props.imageUrl}/>
+                    </div>
+                    <div className="columns small-8 medium-8 large-8 ">
+                        <div className="no-padding ">
+                            <h1 className="text-center">{this.props.title}</h1>
+                        </div>
+                        <div className="description-footer">
+                            <i>{this.props.subtitle}</i>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

@@ -1,0 +1,51 @@
+// =====================
+// Picker
+// =====================
+
+.game-pick-container {
+  //background-color: red;
+  ul {
+    margin-left: 0;
+    list-style-type: none;
+  }
+  margin: 1rem 15rem 0 15rem;
+
+}
+
+.game-pick-item {
+  padding:1rem;
+  margin: 1rem;
+  border-color: #000;
+  img {
+    border-radius: 8px;
+  }
+
+  order-radius: 15px;
+  background-color: #FAFAFA;
+  -webkit-transition: background-color 400ms linear;
+  -ms-transition: background-color 400ms linear;
+  transition: background-color 400ms linear;
+
+  .description-header {
+    padding: 1rem;
+  }
+  .description-footer {
+    text-align: center;
+    padding: 1rem;
+  }
+}
+
+.game-pick-item:hover {
+  background-color: #bdc3c7;
+  -webkit-transition: background-color 250ms linear;
+  -ms-transition: background-color 250ms linear;
+  transition: background-color 250ms linear;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.no-padding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+

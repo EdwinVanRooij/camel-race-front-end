@@ -4,6 +4,7 @@ import {Route, Router, IndexRoute, hashHistory} from 'react-router';
 import Container from 'Container';
 import Author from 'Author';
 import Game from 'Game';
+import GamePickContainer from 'GamePickContainer';
 
 // Load css
 require('style!css!foundation-sites/dist/foundation.min.css');
@@ -17,7 +18,7 @@ ReactDOM.render(
         <Route path="/" component={Container}>
             <Route path="author" component={Author}/>
 
-            <IndexRoute component={Game}/>
+            <IndexRoute component={GamePickContainer}/>
         </Route>
     </Router>,
     document.getElementById('app')
