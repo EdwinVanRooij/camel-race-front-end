@@ -25,8 +25,6 @@ module.exports = {
         root: __dirname,
         alias: {
             Container: 'app/components/Container.jsx',
-            Nav: 'app/components/Nav.jsx',
-            Author: 'app/components/Author.jsx',
 
             applicationStyles: 'app/styles/app.scss',
             Util: 'app/util.jsx',
@@ -38,10 +36,10 @@ module.exports = {
 
             Game: 'app/components/game/camelrace/race/Game.jsx',
 
-            Lobby: 'app/components/game/lobby/Lobby.jsx',
-            LobbyConnectedBox: 'app/components/game/lobby/LobbyConnectedBox.jsx',
-            LobbyStartBox: 'app/components/game/lobby/LobbyStartBox.jsx',
-            LobbyReadyIndicator: 'app/components/game/lobby/LobbyReadyIndicator.jsx',
+            Lobby: 'app/components/game/camelrace/lobby/Lobby.jsx',
+            LobbyConnectedBox: 'app/components/game/camelrace/lobby/LobbyConnectedBox.jsx',
+            LobbyStartBox: 'app/components/game/camelrace/lobby/LobbyStartBox.jsx',
+            LobbyReadyIndicator: 'app/components/game/camelrace/lobby/LobbyReadyIndicator.jsx',
 
             Race: 'app/components/game/camelrace/race/Race.jsx',
             DeckBox: 'app/components/game/camelrace/race/DeckBox.jsx',

@@ -1,8 +1,8 @@
 import React from 'react';
 import PageHeader from 'PageHeader';
-import LobbyConnectedBox from 'LobbyConnectedBox';
-import LobbyStartBox from 'LobbyStartBox';
-import LobbyReadyIndicator from 'LobbyReadyIndicator';
+import LobbyConnectedBox from 'app/components/game/camelrace/lobby/LobbyConnectedBox';
+import LobbyStartBox from 'app/components/game/camelrace/lobby/LobbyStartBox';
+import LobbyReadyIndicator from 'app/components/game/camelrace/lobby/LobbyReadyIndicator';
 
 class Lobby extends React.Component {
 
