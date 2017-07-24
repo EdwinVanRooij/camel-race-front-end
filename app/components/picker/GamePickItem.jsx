@@ -5,8 +5,8 @@ class GamePickItem extends React.Component {
 
     render() {
         return (
-            <div className="game-pick-item">
-                <div className="row" onClick={this.props.onClick}>
+            <div className="game-pick-item" onClick={this.props.onClick}>
+                <div className="row" >
                     <div className="columns small-4 medium-4 large-4 no-padding description-header">
                         <img src={this.props.imageUrl}/>
                     </div>
