@@ -4,12 +4,12 @@
   padding: $space-large;
   background-color: $connected-box-background-color;
 
-  .has-bid {
-    color: $player-names-color-has-bid;
+  .bid {
+    color: $player-names-color-bid;
   }
 
-  .has-no-bid {
-    color: $player-names-color-has-no-bid;
+  .connected {
+    color: $player-names-color-ready;
   }
 }
 

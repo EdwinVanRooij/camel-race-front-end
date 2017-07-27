@@ -18,7 +18,7 @@ class PlayerRow extends React.Component {
     render() {
         if (this.props.player.bidValue) {
             return (
-                <li className="has-bid">
+                <li className="bid">
                     <h4>
                         {this.props.player.name}: {this.props.player.bidValue} on {capitalize(this.props.player.cardType)}
                     </h4>
@@ -26,7 +26,7 @@ class PlayerRow extends React.Component {
             )
         } else {
             return (
-                <li className="has-no-bid">
+                <li className="connected">
                     <h4>
                     {this.props.player.name}
                     </h4>

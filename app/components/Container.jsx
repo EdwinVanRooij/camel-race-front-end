@@ -1,6 +1,7 @@
 import React from 'react';
 import GamePickContainer from 'GamePickContainer';
-import Game from 'Game';
+import CamelRaceGame from 'CamelRaceGame';
+import MexicanGame from 'MexicanGame';
 
 function HomeButton(props) {
     return (
@@ -57,7 +58,7 @@ class Container extends React.Component {
             case 'camelRace': {
                 return (
                     <div>
-                        <Game/>
+                        <CamelRaceGame/>
                         <HomeButton onClick={() => this.handleHomeClick()}/>
                     </div>
                 );
@@ -65,7 +66,7 @@ class Container extends React.Component {
             case 'mexican': {
                 return (
                     <div>
-                        <h1>Mexican!</h1>
+                        <MexicanGame/>
                         <HomeButton onClick={() => this.handleHomeClick()}/>
                     </div>
                 );

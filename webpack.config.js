@@ -34,12 +34,13 @@ module.exports = {
             GamePickContainer: 'app/components/picker/GamePickContainer.jsx',
             GamePickItem: 'app/components/picker/GamePickItem.jsx',
 
-            Game: 'app/components/game/camelrace/race/Game.jsx',
+            CamelRaceGame: 'app/components/game/camelrace/CamelRaceGame.jsx',
+            MexicanGame: 'app/components/game/mexican/MexicanGame.jsx',
 
-            Lobby: 'app/components/game/camelrace/lobby/Lobby.jsx',
-            LobbyConnectedBox: 'app/components/game/camelrace/lobby/LobbyConnectedBox.jsx',
-            LobbyStartBox: 'app/components/game/camelrace/lobby/LobbyStartBox.jsx',
-            LobbyReadyIndicator: 'app/components/game/camelrace/lobby/LobbyReadyIndicator.jsx',
+            Lobby: 'app/components/game/lobby/Lobby.jsx',
+            LobbyConnectedBox: 'app/components/game/lobby/LobbyConnectedBox.jsx',
+            LobbyStartBox: 'app/components/game/lobby/LobbyStartBox.jsx',
+            LobbyReadyIndicator: 'app/components/game/lobby/LobbyReadyIndicator.jsx',
 
             Race: 'app/components/game/camelrace/race/Race.jsx',
             DeckBox: 'app/components/game/camelrace/race/DeckBox.jsx',

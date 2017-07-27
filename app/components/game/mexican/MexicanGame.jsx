@@ -10,13 +10,13 @@ class Game extends React.Component {
         super(props);
 
         this.state = {
-            ws: new WebSocket('ws://192.168.5.115:8085/camelrace/host'),
-            // ws: new WebSocket('ws://88.159.34.253:8085/camelrace/host'),
+            ws: new WebSocket('ws://192.168.5.115:8085/mexican/host'),
+            // ws: new WebSocket('ws://88.159.34.253:8085/mexican/host'),
             gameId: 'default',
             currentScreen: 'lobby',
         };
         this.state.ws.onopen = () => {
-            this.state.ws.send("{'eventType': 'gameCreate'}");
+            this.state.ws.send("{'eventType': 'mexicanGameCreate'}");
         };
     }
 
@@ -51,6 +51,7 @@ class Game extends React.Component {
                         onStartClick={() => this.handleOnStartClick()}
                         ws={this.state.ws}
                         gameId={this.state.gameId}
+                        gameName="Mexican"
                     />
                 );
             }

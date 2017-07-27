@@ -1,8 +1,8 @@
 import React from 'react';
 import PageHeader from 'PageHeader';
-import LobbyConnectedBox from 'app/components/game/camelrace/lobby/LobbyConnectedBox';
-import LobbyStartBox from 'app/components/game/camelrace/lobby/LobbyStartBox';
-import LobbyReadyIndicator from 'app/components/game/camelrace/lobby/LobbyReadyIndicator';
+import LobbyConnectedBox from 'LobbyConnectedBox';
+import LobbyStartBox from 'LobbyStartBox';
+import LobbyReadyIndicator from 'LobbyReadyIndicator';
 
 class Lobby extends React.Component {
 
@@ -84,7 +84,7 @@ class Lobby extends React.Component {
         return (
             <div>
                 <div>
-                    <PageHeader title={'Lobby!'}/>
+                    <PageHeader title={'Lobby!' + ' - ' + this.props.gameName}/>
                 </div>
                 <div className="row container">
                     <div className="columns small-4 medium-4 large-4 connected-box">

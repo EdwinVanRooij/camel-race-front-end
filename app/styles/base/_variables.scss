@@ -7,6 +7,7 @@ $space-medium: 1rem;
 $grey: #eaeaea;
 $light-grey: #fafafa;
 $light-grey-border: #eeeeee;
+$black: #202020;
 $white: #ffffff;
 $green: #2ecc71;
 $blue: #2980b9;
@@ -20,7 +21,8 @@ $container-border-color: $light-grey-border;
 $connected-box-background-color: $grey;
 $connected-box-border-color: $light-grey-border;
 
-$player-names-color-has-bid: $green;
-$player-names-color-has-no-bid: $blue;
+$player-names-color: $black;
+$player-names-color-bid: $green;
+$player-names-color-ready: $blue;
 
 $start-box-background-color: $light-grey;
