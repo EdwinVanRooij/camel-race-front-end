@@ -1,6 +1,7 @@
 import React from 'react';
 import Lobby from 'Lobby';
 import Race from 'Race';
+import ModeSelection from 'ModeSelection';
 import Results from 'Results';
 
 
@@ -28,15 +29,23 @@ class Game extends React.Component {
 
     handleOnStartClick() {
         this.state.ws.send("{'eventType': 'gameStart', 'value': '" + this.state.gameId + "'}");
-        this.setState({currentScreen: 'race'});
+        this.setState({currentScreen: 'mode-selection'});
     }
+
+    handleModeSelected(mode) {
+        this.setState({
+            mode: mode,
+            currentScreen: 'race'
+        });
+    }
+
     handleGameOver(results) {
         this.setState({
-            results: results
+            results: results,
+            currentScreen: 'results',
         });
-
-        this.setState({currentScreen: 'results'});
     }
+
     handleOnRestartClick() {
         this.state.ws.send("{'eventType': 'gameRestart', 'value': '" + this.state.gameId + "'}");
         this.setState({currentScreen: 'lobby'});
@@ -52,6 +61,15 @@ class Game extends React.Component {
                         ws={this.state.ws}
                         gameId={this.state.gameId}
                         gameName="Mexican"
+                    />
+                );
+            }
+            case 'mode-selection': {
+                return (
+                    <ModeSelection
+                        onModeSelected={(mode) => this.handleModeSelected(mode)}
+                        ws={this.state.ws}
+                        gameId={this.state.gameId}
                     />
                 );
             }

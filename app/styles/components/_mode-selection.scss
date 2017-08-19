@@ -1,0 +1,33 @@
+// =====================
+// Game -- general
+// =====================
+
+.game-mode-container {
+  padding: $space-large;
+  background-color: $game-mode-container-background-color;
+}
+
+.game-mode {
+  padding: $space-large;
+
+  .title {
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    background-color: $white;
+    color: $game-mode-title-color;
+    border-radius: 10px;
+    padding: 0.3rem;
+    border: 1px;
+    text-align: center;
+  }
+
+  .body {
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    background-color: $white;
+    color: $game-mode-title-color;
+    border-radius: 10px;
+    padding: 2rem;
+    border: 1px;
+  }
+}

@@ -42,6 +42,9 @@ module.exports = {
             LobbyStartBox: 'app/components/game/lobby/LobbyStartBox.jsx',
             LobbyReadyIndicator: 'app/components/game/lobby/LobbyReadyIndicator.jsx',
 
+            ModeSelection: 'app/components/game/mexican/mode-selection/ModeSelection.jsx',
+            GameMode: 'app/components/game/mexican/mode-selection/GameMode.jsx',
+
             Race: 'app/components/game/camelrace/race/Race.jsx',
             DeckBox: 'app/components/game/camelrace/race/DeckBox.jsx',
             SideCardsBox: 'app/components/game/camelrace/race/SideCardsBox.jsx',
