@@ -1,6 +1,6 @@
 import React from 'react';
 import Lobby from 'Lobby';
-import Race from 'Race';
+import DiceGame from 'DiceGame';
 import ModeSelection from 'ModeSelection';
 import Results from 'Results';
 
@@ -29,7 +29,8 @@ class Game extends React.Component {
 
     handleOnStartClick() {
         this.state.ws.send("{'eventType': 'gameStart', 'value': '" + this.state.gameId + "'}");
-        this.setState({currentScreen: 'mode-selection'});
+        this.setState({currentScreen: 'game'});
+        // this.setState({currentScreen: 'mode-selection'});
     }
 
     handleModeSelected(mode) {
@@ -73,10 +74,11 @@ class Game extends React.Component {
                     />
                 );
             }
-            case 'race': {
+            case 'game': {
                 return (
-                    <Race
+                    <DiceGame
                         onGameOver={(results) => this.handleGameOver(results)}
+                        mode={this.state.mode}
                         ws={this.state.ws}
                         gameId={this.state.gameId}
                     />
