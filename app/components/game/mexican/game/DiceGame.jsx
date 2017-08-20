@@ -16,11 +16,11 @@ class DiceGame extends React.Component {
             gameId: props.gameId,
         };
 
-        setTimeout(() => this.rollNumber(1, 2), 2 * 1000);
-        // setTimeout(() => this.rollNumber(2, 6), 2 * 1000);
+        setTimeout(() => this.rollNumber('one', 2), 2 * 1000);
+        setTimeout(() => this.rollNumber('two', 6), 2 * 1000);
 
-        setTimeout(() => this.rollNumber(1, 3), 6 * 1000);
-        // setTimeout(() => this.rollNumber(2, 5), 6 * 1000);
+        setTimeout(() => this.rollNumber('one', 3), 6 * 1000);
+        setTimeout(() => this.rollNumber('two', 1), 6 * 1000);
 
         this.state.ws.onmessage = (event) => {
             console.log('Message from dicegame');
@@ -53,53 +53,48 @@ class DiceGame extends React.Component {
     }
 
     rollDice(diceNumber, side) {
-        //Removes old class and adds the new
-        var dice;
-        // if (diceNumber == 1) {
-        //     dice = $('#dice1');
-        // } else if (diceNumber == 2) {
-        // }
-        dice = $('#dice');
+        var dice = $('#dice-' + diceNumber);
+
         var currentClass = dice.attr('class');
         var newClass = 'show-' + side;
 
         dice.removeClass();
         dice.addClass(newClass);
 
-        if (currentClass == newClass) {
+        if (currentClass === newClass) {
             dice.addClass('show-same');
         }
     }
 
-    rollNumber(diceNumber, number) {
-        console.log('Rolling dice ' + diceNumber + ' to ' + number);
-        if (number == 1) {
-            this.rollDice(diceNumber, 'front');
+    rollNumber(dice, number) {
+        console.log('Rolling dice ' + dice + ' to ' + number);
+        if (number === 1) {
+            this.rollDice(dice, 'front');
         }
-        else if (number == 2) {
+        else if (number === 2) {
             console.log('Rolling to 2');
-            this.rollDice(diceNumber, 'top');
+            this.rollDice(dice, 'top');
         }
-        else if (number == 3) {
+        else if (number === 3) {
             console.log('Rolling to 3');
-            this.rollDice(diceNumber, 'left');
+            this.rollDice(dice, 'left');
         }
-        else if (number == 4) {
-            this.rollDice(diceNumber, 'right');
+        else if (number === 4) {
+            this.rollDice(dice, 'right');
         }
-        else if (number == 5) {
-            this.rollDice(diceNumber, 'bottom');
+        else if (number === 5) {
+            this.rollDice(dice, 'bottom');
         }
-        else if (number == 6) {
-            this.rollDice(diceNumber, 'back');
+        else if (number === 6) {
+            this.rollDice(dice, 'back');
         }
     }
 
     renderDices() {
         return (
             <div>
-                <section className="dice-container">
-                    <div id="dice" className="show-front">
+                <section className="dice-container columns small-6 medium-6 large-6">
+                    <div id="dice-one" className="show-front">
                         <figure className="front"/>
                         <figure className="back"/>
                         <figure className="right"/>
@@ -108,18 +103,16 @@ class DiceGame extends React.Component {
                         <figure className="bottom"/>
                     </div>
                 </section>
-                <br/>
-                {/*<br/>*/}
-                {/*<section className="dice-container">*/}
-                {/*<div id="dice2" className="show-front">*/}
-                {/*<figure className="front"/>*/}
-                {/*<figure className="back"/>*/}
-                {/*<figure className="right"/>*/}
-                {/*<figure className="left"/>*/}
-                {/*<figure className="top"/>*/}
-                {/*<figure className="bottom"/>*/}
-                {/*</div>*/}
-                {/*</section>*/}
+                <section className="dice-container columns small-6 medium-6 large-6">
+                    <div id="dice-two" className="show-front">
+                        <figure className="front"/>
+                        <figure className="back"/>
+                        <figure className="right"/>
+                        <figure className="left"/>
+                        <figure className="top"/>
+                        <figure className="bottom"/>
+                    </div>
+                </section>
             </div>
         )
     }

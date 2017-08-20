@@ -22,77 +22,117 @@
 }
 
 .dices {
-  //background-color: blue;
+  padding: $space-large * 2;
 }
 
 .dice-container {
-	width: 300px;
-	height: 300px;
-  	position: relative;
-  	perspective: 1000px;
-	cursor: -webkit-grab;
-	cursor: -moz-grab;
-	cursor: grab;
-	z-index: 999;
-	transition: transform 0.2s ease;
-	&:hover {
-		transform: scale(0.98);
-	}
+  width: 300px;
+  height: 300px;
+  position: relative;
+  perspective: 1000px;
+  z-index: 999;
 }
 
-#dice {
-  	width: 100%;
-  	height: 100%;
-  	position: absolute;
-  	transform-style: preserve-3d;
-	transition: transform 1s;
-	figure {
-		width: 198px;
-		height: 198px;
-		display: block;
-		position: absolute;
-		border: 1px solid #000;
-		box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8);
-		//border-radius: 10px;
-		text-align: center;
-		line-height: 200px;
-		font-size: 60px;
-		background-color: #FFF;
-	}
+#dice-one, #dice-two {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+
+  figure {
+    width: 198px;
+    height: 198px;
+    display: block;
+    position: absolute;
+    border: 1px solid #000;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.15);
+    //border-radius: 10px;
+    text-align: center;
+    line-height: 200px;
+    font-size: 60px;
+    background-color: #FFF;
+  }
+
+  .front {
+    transform: rotateY(0deg) translateZ(100px);
+    background-image: url('https://alexerlandsson.com/uploads/codepen/dice/dice_one.png');
+  }
+  .back {
+    transform: rotateX(180deg) translateZ(100px);
+    background-image: url('https://alexerlandsson.com/uploads/codepen/dice/dice_six.png');
+  }
+  .right {
+    transform: rotateY(90deg) translateZ(100px);
+    background-image: url('https://alexerlandsson.com/uploads/codepen/dice/dice_four.png');
+  }
+  .left {
+    transform: rotateY(-90deg) translateZ(100px);
+    background-image: url('https://alexerlandsson.com/uploads/codepen/dice/dice_three.png');
+  }
+  .top {
+    transform: rotateX(90deg) translateZ(100px);
+    background-image: url('https://alexerlandsson.com/uploads/codepen/dice/dice_two.png');
+  }
+  .bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+    background-image: url('https://alexerlandsson.com/uploads/codepen/dice/dice_five.png');
+  }
 }
 
-#dice .front  {
-	transform: rotateY(   0deg ) translateZ( 100px );
-	background-image: url('https://alexerlandsson.com/uploads/codepen/dice/dice_one.png');
-}
-#dice .back   {
-	transform: rotateX( 180deg ) translateZ( 100px );
-	background-image: url('https://alexerlandsson.com/uploads/codepen/dice/dice_six.png');
-}
-#dice .right  {
-	transform: rotateY(  90deg ) translateZ( 100px );
-	background-image: url('https://alexerlandsson.com/uploads/codepen/dice/dice_four.png');
-}
-#dice .left   {
-	transform: rotateY( -90deg ) translateZ( 100px );
-	background-image: url('https://alexerlandsson.com/uploads/codepen/dice/dice_three.png');
-}
-#dice .top    {
-	transform: rotateX(  90deg ) translateZ( 100px );
-	background-image: url('https://alexerlandsson.com/uploads/codepen/dice/dice_two.png');
-}
-#dice .bottom {
-	transform: rotateX( -90deg ) translateZ( 100px );
-	background-image: url('https://alexerlandsson.com/uploads/codepen/dice/dice_five.png');
+#dice-one.show-front {
+  transform: translateZ(-100px) rotateY(0deg);
 }
 
-//These classes changes with jQuery and makes the dice to roll
-#dice.show-front  { transform: translateZ(-100px) rotateY(0deg); }
-#dice.show-back   { transform: translateZ(-100px) rotateX(-180deg); }
-#dice.show-right  { transform: translateZ(-100px) rotateY(-90deg); }
-#dice.show-left   { transform: translateZ(-100px) rotateY(90deg); }
-#dice.show-top    { transform: translateZ(-100px) rotateX(-90deg); }
-#dice.show-bottom { transform: translateZ(-100px) rotateX(90deg); }
+#dice-one.show-back {
+  transform: translateZ(-100px) rotateX(-180deg);
+}
 
-#dice.show-same 	{ transform: translateZ(-100px) rotateX(360deg); }
+#dice-one.show-right {
+  transform: translateZ(-100px) rotateY(-90deg);
+}
+
+#dice-one.show-left {
+  transform: translateZ(-100px) rotateY(90deg);
+}
+
+#dice-one.show-top {
+  transform: translateZ(-100px) rotateX(-90deg);
+}
+
+#dice-one.show-bottom {
+  transform: translateZ(-100px) rotateX(90deg);
+}
+
+#dice-one.show-same {
+  transform: translateZ(-100px) rotateX(360deg);
+}
+
+#dice-two.show-front {
+  transform: translateZ(-100px) rotateY(0deg);
+}
+
+#dice-two.show-back {
+  transform: translateZ(-100px) rotateX(-180deg);
+}
+
+#dice-two.show-right {
+  transform: translateZ(-100px) rotateY(-90deg);
+}
+
+#dice-two.show-left {
+  transform: translateZ(-100px) rotateY(90deg);
+}
+
+#dice-two.show-top {
+  transform: translateZ(-100px) rotateX(-90deg);
+}
+
+#dice-two.show-bottom {
+  transform: translateZ(-100px) rotateX(90deg);
+}
+
+#dice-two.show-same {
+  transform: translateZ(-100px) rotateX(360deg);
+}
 
