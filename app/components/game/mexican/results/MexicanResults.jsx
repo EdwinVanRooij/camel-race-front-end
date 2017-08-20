@@ -1,9 +1,8 @@
 import React from 'react';
 import PageHeader from 'PageHeader';
 
-import RestartBox from 'app/components/game/camelrace/results/RestartBox';
-import ResultsBox from 'app/components/game/camelrace/results/ResultsBox';
-import PlayerResults from 'app/components/game/camelrace/results/PlayerResults';
+import MexicanLoser from 'MexicanLoser';
+import MexicanResultTable from 'MexicanResultTable';
 
 class Results extends React.Component {
 
@@ -26,21 +25,18 @@ class Results extends React.Component {
         };
     }
 
-    render () {
+    render() {
         return (
             <div>
                 <div>
-                    <PageHeader title={'Results!'}/>
+                    <PageHeader title={'Results'}/>
                 </div>
-                <div className="row container">
-                    <div className="results-box  columns small-4 medium-4 large-4 ">
-                        <ResultsBox results={this.props.results}/>
+                <div className="container">
+                    <div className="row">
+                        <MexicanLoser name={'Rik'} stake={5}/>
                     </div>
-                    <div className="player-results-box columns small-8 medium-8 large-8">
-                        <PlayerResults results={this.props.results}/>
-                    </div>
-                    <div className="start-box ">
-                        <RestartBox onRestartClick={this.props.onRestartClick} gameId={this.props.gameId}/>
+                    <div className="row">
+                        <MexicanResultTable players={[]} stake={5}/>
                     </div>
                 </div>
             </div>

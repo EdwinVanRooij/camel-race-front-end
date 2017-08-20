@@ -2,7 +2,7 @@ import React from 'react';
 import Lobby from 'Lobby';
 import DiceGame from 'DiceGame';
 import ModeSelection from 'ModeSelection';
-import Results from 'Results';
+import MexicanResults from 'MexicanResults';
 
 
 class Game extends React.Component {
@@ -29,7 +29,7 @@ class Game extends React.Component {
 
     handleOnStartClick() {
         this.state.ws.send("{'eventType': 'gameStart', 'value': '" + this.state.gameId + "'}");
-        this.setState({currentScreen: 'game'});
+        this.setState({currentScreen: 'results'});
         // this.setState({currentScreen: 'mode-selection'});
     }
 
@@ -86,10 +86,10 @@ class Game extends React.Component {
             }
             case 'results': {
                 return (
-                    <Results
+                    <MexicanResults
                         onRestartClick={() => this.handleOnRestartClick()}
                         ws={this.state.ws}
-                        results={this.state.results}
+                        // results={this.state.results}
                     />
                 );
             }

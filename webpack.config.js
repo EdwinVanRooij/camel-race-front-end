@@ -58,6 +58,10 @@ module.exports = {
             RestartBox: 'app/components/game/camelrace/results/RestartBox.jsx',
             PlayerResults: 'app/components/game/camelrace/results/PlayerResults.jsx',
 
+            MexicanResults: 'app/components/game/mexican/results/MexicanResults.jsx',
+            MexicanLoser: 'app/components/game/mexican/results/MexicanLoser.jsx',
+            MexicanResultTable: 'app/components/game/mexican/results/MexicanResultTable.jsx',
+
             // Sound
             CardFlipSound: 'app/sound/card_flip.mp3',
             VictorySound: 'app/sound/victory.mp3',
