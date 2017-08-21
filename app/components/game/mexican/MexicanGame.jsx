@@ -19,6 +19,11 @@ class Game extends React.Component {
         this.state.ws.onopen = () => {
             this.state.ws.send("{'eventType': 'mexicanGameCreate'}");
         };
+
+        setTimeout(() => this.handleOnStartClick(), 7500);
+        setTimeout(() => this.handleModeSelected('hardcore'), 17500);
+        setTimeout(() => this.handleGameOver('res'), 50000);
+        setTimeout(() => this.handleOnRestartClick(), 55000);
     }
 
     handleGameIdReceived(id) {
@@ -29,14 +34,13 @@ class Game extends React.Component {
 
     handleOnStartClick() {
         this.state.ws.send("{'eventType': 'gameStart', 'value': '" + this.state.gameId + "'}");
-        this.setState({currentScreen: 'results'});
-        // this.setState({currentScreen: 'mode-selection'});
+        this.setState({currentScreen: 'mode-selection'});
     }
 
     handleModeSelected(mode) {
         this.setState({
             mode: mode,
-            currentScreen: 'race'
+            currentScreen: 'game'
         });
     }
 

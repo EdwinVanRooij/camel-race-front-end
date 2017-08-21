@@ -131,9 +131,9 @@ class DiceGame extends React.Component {
                                 <table className="unstriped">
                                     <thead>
                                     <tr>
-                                        <th width="300">Player</th>
-                                        <th width="150">Score</th>
-                                        <th width="150">Throws left</th>
+                                        <th width="300">😃</th>
+                                        <th width="150">⚁ ⚃</th>
+                                        <th width="150">⌛</th>
                                     </tr>
                                     </thead>
                                     <tbody>
