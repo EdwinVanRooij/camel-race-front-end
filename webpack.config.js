@@ -62,6 +62,8 @@ module.exports = {
             MexicanLoser: 'app/components/game/mexican/results/MexicanLoser.jsx',
             MexicanResultTable: 'app/components/game/mexican/results/MexicanResultTable.jsx',
 
+            MexicanPlayerTable: 'app/components/game/mexican/game/MexicanPlayerTable.jsx',
+
             // Sound
             CardFlipSound: 'app/sound/card_flip.mp3',
             VictorySound: 'app/sound/victory.mp3',

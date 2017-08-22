@@ -1,10 +1,7 @@
 import React from 'react';
 import PageHeader from 'PageHeader';
 
-import SideCardsBox from 'app/components/game/camelrace/race/SideCardsBox';
-import DeckBox from 'app/components/game/camelrace/race/DeckBox';
-import CamelsBox from 'app/components/game/camelrace/race/CamelsBox';
-
+import MexicanPlayerTable from 'MexicanPlayerTable';
 
 class DiceGame extends React.Component {
 
@@ -16,11 +13,11 @@ class DiceGame extends React.Component {
             gameId: props.gameId,
         };
 
-        setTimeout(() => this.rollNumber('one', 2), 2 * 1000);
-        setTimeout(() => this.rollNumber('two', 6), 2 * 1000);
+        // setTimeout(() => this.rollNumber('one', 2), 2 * 1000);
+        // setTimeout(() => this.rollNumber('two', 6), 2 * 1000);
 
-        setTimeout(() => this.rollNumber('one', 3), 6 * 1000);
-        setTimeout(() => this.rollNumber('two', 1), 6 * 1000);
+        // setTimeout(() => this.rollNumber('one', 3), 6 * 1000);
+        // setTimeout(() => this.rollNumber('two', 1), 6 * 1000);
 
         this.state.ws.onmessage = (event) => {
             console.log('Message from dicegame');
@@ -40,14 +37,20 @@ class DiceGame extends React.Component {
     }
 
     renderTitle() {
-        let suffix = '';
-        if (this.props.mode === 'Hardcore') {
-            suffix = '!';
+        const gameModeOrdinal = this.props.gameState.gameModeOrdinal;
+        let title;
+        if (gameModeOrdinal === 1) {
+            title = 'Hardcore!'
+        } else if (gameModeOrdinal === 2) {
+            title = 'Normal'
+        } else {
+            title = 'Error! Time to panic!';
+            console.log('Could not link game mode ordinal ' + gameModeOrdinal + ' to a valid game mode.')
         }
 
         return (
             <div>
-                <PageHeader title={this.props.mode + suffix}/>
+                <PageHeader title={title}/>
             </div>
         );
     }
@@ -125,45 +128,10 @@ class DiceGame extends React.Component {
                     <div className="row">
                         <div className="columns small-4 medium-4 large-4 player-scores">
                             <div className="stake">
-                                <h1>Stake: 2</h1>
+                                <h1>Stake: {this.props.gameState.stake}</h1>
                             </div>
                             <div>
-                                <table className="unstriped">
-                                    <thead>
-                                    <tr>
-                                        <th width="300">😃</th>
-                                        <th width="150">⚁ ⚃</th>
-                                        <th width="150">⌛</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>Edwin</td>
-                                        <td>63</td>
-                                        <td>0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tom</td>
-                                        <td>52</td>
-                                        <td>0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Fons</td>
-                                        <td>43</td>
-                                        <td>2</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bob</td>
-                                        <td>...</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rik</td>
-                                        <td>...</td>
-                                        <td>3</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                                <MexicanPlayerTable players={this.props.gameState.players}/>
                             </div>
                         </div>
                         <div className="columns small-8 medium-8 large-8">

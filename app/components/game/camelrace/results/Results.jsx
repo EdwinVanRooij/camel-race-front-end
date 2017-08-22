@@ -40,7 +40,7 @@ class Results extends React.Component {
                         <PlayerResults results={this.props.results}/>
                     </div>
                     <div className="start-box ">
-                        <RestartBox onRestartClick={this.props.onRestartClick} gameId={this.props.gameId}/>
+                       <RestartBox onRestartClick={this.props.onRestartClick} gameId={this.props.gameId}/>
                     </div>
                 </div>
             </div>

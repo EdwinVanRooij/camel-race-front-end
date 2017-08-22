@@ -19,11 +19,6 @@ class Game extends React.Component {
         this.state.ws.onopen = () => {
             this.state.ws.send("{'eventType': 'mexicanGameCreate'}");
         };
-
-        setTimeout(() => this.handleOnStartClick(), 7500);
-        setTimeout(() => this.handleModeSelected('hardcore'), 17500);
-        setTimeout(() => this.handleGameOver('res'), 50000);
-        setTimeout(() => this.handleOnRestartClick(), 55000);
     }
 
     handleGameIdReceived(id) {
@@ -37,9 +32,9 @@ class Game extends React.Component {
         this.setState({currentScreen: 'mode-selection'});
     }
 
-    handleModeSelected(mode) {
+    handleGameStartedWithState(gameState) {
         this.setState({
-            mode: mode,
+            gameState: gameState,
             currentScreen: 'game'
         });
     }
@@ -72,9 +67,8 @@ class Game extends React.Component {
             case 'mode-selection': {
                 return (
                     <ModeSelection
-                        onModeSelected={(mode) => this.handleModeSelected(mode)}
+                        onGameStartedWithState={(val) => this.handleGameStartedWithState(val)}
                         ws={this.state.ws}
-                        gameId={this.state.gameId}
                     />
                 );
             }
@@ -82,7 +76,7 @@ class Game extends React.Component {
                 return (
                     <DiceGame
                         onGameOver={(results) => this.handleGameOver(results)}
-                        mode={this.state.mode}
+                        gameState={this.state.gameState}
                         ws={this.state.ws}
                         gameId={this.state.gameId}
                     />
