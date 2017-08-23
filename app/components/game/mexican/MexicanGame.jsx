@@ -32,7 +32,7 @@ class Game extends React.Component {
         this.setState({currentScreen: 'mode-selection'});
     }
 
-    handleGameStartedWithState(gameState) {
+    handleOnEveryoneVoted(gameState) {
         this.setState({
             gameState: gameState,
             currentScreen: 'game'
@@ -67,7 +67,7 @@ class Game extends React.Component {
             case 'mode-selection': {
                 return (
                     <ModeSelection
-                        onGameStartedWithState={(val) => this.handleGameStartedWithState(val)}
+                        onEveryoneVoted={(val) => this.handleOnEveryoneVoted(val)}
                         ws={this.state.ws}
                     />
                 );

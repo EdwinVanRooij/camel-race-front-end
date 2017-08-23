@@ -23,11 +23,24 @@ class DiceGame extends React.Component {
             console.log('Message from dicegame');
             const obj = JSON.parse(event.data);
             switch (obj.eventType) {
-                case 'gameStartedWithState':
+                case 'everyoneVoted':
                     this.setState({
                         gameState: obj.value
                     });
                     setTimeout(() => this.pickCard(), this.start_delay * 1000);
+                    break;
+
+                case 'newThrow':
+                    this.rollDice(1, 3);
+                    setTimeout(() => this.rollNumber('one', obj.value.firstScore), 0);
+                    setTimeout(() => this.rollNumber('two', obj.value.secondScore), 1000);
+
+                    setTimeout(() => {
+                        this.setState({
+                            score: obj.value.score
+                        });
+                    }, 2000);
+
                     break;
 
                 default:
@@ -39,10 +52,10 @@ class DiceGame extends React.Component {
     renderTitle() {
         const gameModeOrdinal = this.props.gameState.gameModeOrdinal;
         let title;
-        if (gameModeOrdinal === 1) {
-            title = 'Hardcore!'
-        } else if (gameModeOrdinal === 2) {
+        if (gameModeOrdinal === 0) {
             title = 'Normal'
+        } else if (gameModeOrdinal === 1) {
+            title = 'Hardcore!'
         } else {
             title = 'Error! Time to panic!';
             console.log('Could not link game mode ordinal ' + gameModeOrdinal + ' to a valid game mode.')
@@ -136,7 +149,7 @@ class DiceGame extends React.Component {
                         </div>
                         <div className="columns small-8 medium-8 large-8">
                             <div className="row score">
-                                <h2>Score: 300</h2>
+                                <h2>Score: {this.state.score}</h2>
                             </div>
                             <div className="row dices">
                                 {this.renderDices()}

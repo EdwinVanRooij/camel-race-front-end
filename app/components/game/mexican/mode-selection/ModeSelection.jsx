@@ -35,8 +35,8 @@ class ModeSelection extends React.Component {
                     }
                     break;
 
-                case 'gameStartedWithState':
-                    this.props.onGameStartedWithState(obj.value);
+                case 'everyoneVoted':
+                    this.props.onEveryoneVoted(obj.value);
                     break;
 
                 default:
