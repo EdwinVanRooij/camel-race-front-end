@@ -5,8 +5,8 @@ class PlayerRow extends React.Component {
     render() {
         return (
             <tr>
-                <td>{this.props.player.name}</td>
-                <td>{this.props.player.score}</td>
+                <td>{this.props.name}</td>
+                <td>{this.props.score}</td>
             </tr>
         )
     }
@@ -18,10 +18,11 @@ class MexicanResultTable extends React.Component {
         return (
             <tbody>
             {
-                this.props.players.map(player =>
+                this.props.players.map(playerItem =>
                         <PlayerRow
-                            key={player.id}
-                            player={player}
+                            key={playerItem.player.id}
+                            name={playerItem.player.name}
+                            score={playerItem.score}
                         />
                 )
             }

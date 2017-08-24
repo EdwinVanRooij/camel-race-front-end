@@ -42,7 +42,9 @@ class Game extends React.Component {
     handleGameOver(results) {
         this.setState({
             results: results,
-            currentScreen: 'results',
+        });
+        this.setState({
+            currentScreen: 'results'
         });
     }
 
@@ -87,7 +89,7 @@ class Game extends React.Component {
                     <MexicanResults
                         onRestartClick={() => this.handleOnRestartClick()}
                         ws={this.state.ws}
-                        // results={this.state.results}
+                        results={this.state.results}
                     />
                 );
             }

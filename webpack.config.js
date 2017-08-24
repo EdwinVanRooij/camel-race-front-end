@@ -64,6 +64,12 @@ module.exports = {
 
             MexicanPlayerTable: 'app/components/game/mexican/game/MexicanPlayerTable.jsx',
 
+            MexicanOne: 'app/img/mexican_one.png',
+            MexicanTwo: 'app/img/mexican_two.png',
+
+            MexicanChickOne: 'app/img/mexican_chick_one.png',
+            MexicanChickTwo: 'app/img/mexican_chick_two.png',
+
             // Sound
             CardFlipSound: 'app/sound/card_flip.mp3',
             VictorySound: 'app/sound/victory.mp3',

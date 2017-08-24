@@ -1,6 +1,9 @@
 import React from 'react';
 import PageHeader from 'PageHeader';
 
+import MexicanChickOne from 'MexicanChickOne';
+import MexicanChickTwo from 'MexicanChickTwo';
+
 import MexicanLoser from 'MexicanLoser';
 import MexicanResultTable from 'MexicanResultTable';
 
@@ -10,17 +13,7 @@ class Results extends React.Component {
         super(props);
         this.state = {
             ws: props.ws,
-            players: [],
         };
-
-        let newPlayer = {id: 1, name: 'Rik', score: 42};
-        let newPlayer2 = {id: 2, name: 'Edwin', score: 600};
-        this.state.players.push(newPlayer);
-        this.state.players.push(newPlayer2);
-        this.setState({
-            players: this.state.players
-        });
-
 
         this.state.ws.onmessage = (event) => {
             console.log('Message from results');
@@ -43,10 +36,18 @@ class Results extends React.Component {
                 </div>
                 <div className="container">
                     <div className="row">
-                        <MexicanLoser name={'Rik'} stake={5}/>
+                        <MexicanLoser name={this.props.results.loser.name} stake={this.props.results.stake}/>
                     </div>
                     <div className="row">
-                        <MexicanResultTable players={this.state.players} stake={5}/>
+                        <div className="columns small-3 medium-3 large-3">
+                            <img src={MexicanChickOne}/>
+                        </div>
+                        <div className="columns small-6 medium-6 large-6">
+                            <MexicanResultTable players={this.props.results.playerResultItems}/>
+                        </div>
+                        <div className="columns small-3 medium-3 large-3">
+                            <img src={MexicanChickTwo}/>
+                        </div>
                     </div>
                 </div>
             </div>

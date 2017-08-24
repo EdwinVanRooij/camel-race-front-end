@@ -1,6 +1,9 @@
 import React from 'react';
 import PageHeader from 'PageHeader';
 
+import MexicanOne from 'MexicanOne';
+import MexicanTwo from 'MexicanTwo';
+
 import MexicanPlayerTable from 'MexicanPlayerTable';
 
 class DiceGame extends React.Component {
@@ -11,13 +14,11 @@ class DiceGame extends React.Component {
         this.state = {
             ws: props.ws,
             gameId: props.gameId,
+            stake: props.stake,
+            gameState: props.gameState,
+            previousOne: 1,
+            previousTwo: 1,
         };
-
-        // setTimeout(() => this.rollNumber('one', 2), 2 * 1000);
-        // setTimeout(() => this.rollNumber('two', 6), 2 * 1000);
-
-        // setTimeout(() => this.rollNumber('one', 3), 6 * 1000);
-        // setTimeout(() => this.rollNumber('two', 1), 6 * 1000);
 
         this.state.ws.onmessage = (event) => {
             console.log('Message from dicegame');
@@ -27,20 +28,24 @@ class DiceGame extends React.Component {
                     this.setState({
                         gameState: obj.value
                     });
-                    setTimeout(() => this.pickCard(), this.start_delay * 1000);
                     break;
 
-                case 'newThrow':
-                    this.rollDice(1, 3);
-                    setTimeout(() => this.rollNumber('one', obj.value.firstScore), 0);
-                    setTimeout(() => this.rollNumber('two', obj.value.secondScore), 1000);
+                case 'newGameThrow':
+                    setTimeout(() => this.rollNumber('one', obj.value.newThrow.firstScore), 0);
+                    setTimeout(() => this.rollNumber('two', obj.value.newThrow.secondScore), 1000);
 
                     setTimeout(() => {
                         this.setState({
-                            score: obj.value.score
+                            score: obj.value.newThrow.score,
+                            gameState: obj.value.gameState
                         });
-                    }, 2000);
 
+                        this.state.ws.send("{'eventType': 'throwEnded', 'value': '" + this.state.gameId + "'}");
+                    }, 2000);
+                    break;
+
+                case 'allResults':
+                    setTimeout(() => this.props.onGameOver(obj.value), 1000);
                     break;
 
                 default:
@@ -75,11 +80,13 @@ class DiceGame extends React.Component {
         var newClass = 'show-' + side;
 
         dice.removeClass();
-        dice.addClass(newClass);
 
         if (currentClass === newClass) {
-            dice.addClass('show-same');
+            // dice.addClass('show-same');
+        } else {
         }
+
+        dice.addClass(newClass);
     }
 
     rollNumber(dice, number) {
@@ -88,11 +95,9 @@ class DiceGame extends React.Component {
             this.rollDice(dice, 'front');
         }
         else if (number === 2) {
-            console.log('Rolling to 2');
             this.rollDice(dice, 'top');
         }
         else if (number === 3) {
-            console.log('Rolling to 3');
             this.rollDice(dice, 'left');
         }
         else if (number === 4) {
@@ -109,6 +114,7 @@ class DiceGame extends React.Component {
     renderDices() {
         return (
             <div>
+                
                 <section className="dice-container columns small-6 medium-6 large-6">
                     <div id="dice-one" className="show-front">
                         <figure className="front"/>
@@ -138,22 +144,28 @@ class DiceGame extends React.Component {
             <div>
                 {this.renderTitle()}
                 <div className="container">
-                    <div className="row">
-                        <div className="columns small-4 medium-4 large-4 player-scores">
+                    <div className="row mexican-row">
+                        <div className="columns small-2 medium-2 large-2">
+                            <img src={MexicanOne}/>
+                        </div>
+                        <div className="columns small-2 medium-2 large-2 player-scores">
                             <div className="stake">
-                                <h1>Stake: {this.props.gameState.stake}</h1>
+                                <h1>🍺 {this.state.gameState.stake}</h1>
                             </div>
                             <div>
-                                <MexicanPlayerTable players={this.props.gameState.players}/>
+                                <MexicanPlayerTable players={this.state.gameState.players}/>
                             </div>
                         </div>
-                        <div className="columns small-8 medium-8 large-8">
+                        <div className="columns small-6 medium-6 large-6">
                             <div className="row score">
-                                <h2>Score: {this.state.score}</h2>
+                                <h2>{this.state.score}</h2>
                             </div>
                             <div className="row dices">
                                 {this.renderDices()}
                             </div>
+                        </div>
+                        <div className="columns small-2 medium-2 large-2">
+                            <img src={MexicanTwo}/>
                         </div>
                     </div>
                 </div>
