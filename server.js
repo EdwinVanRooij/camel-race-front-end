@@ -5,7 +5,7 @@ var app = express();
 
 app.use(express.static('public'));
 
-const ip = 8086;
-app.listen(ip, function() {
-    console.log('Express server is up on port ' + ip)
+const port = process.env.PORT || 8086;
+app.listen(port, function() {
+    console.log('Express server is up on port ' + port)
 });

@@ -30,5 +30,8 @@
     "script-loader": "0.6.1",
     "style-loader": "0.13.0",
     "webpack": "1.12.13"
+  },
+  "engines": {
+    "node": "8.0.4"
   }
 }
